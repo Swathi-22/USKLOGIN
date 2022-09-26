@@ -25,7 +25,7 @@
         </a>
       </li>
       <li class="nav-item {% if is_service %} active {% endif %}">
-        <a class="nav-link"  href="{% url 'web:service' %}">
+        <a class="nav-link"  href="{% url 'web:serviceHead' %}">
           <span class="menu-title">Services</span>
           <!-- <i class="mdi mdi-Handshake menu-icon"></i> -->
           <i class="fa-solid fa-handshake menu-icon"></i>
@@ -40,32 +40,37 @@
       <li class="nav-item {% if is_poster %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:generatePoster' %}">
           <span class="menu-title">Generate Posters</span>
-          <i class="mdi mdi-contacts menu-icon"></i>
+          <!-- <i class="mdi mdi-contacts menu-icon"></i> -->
+          <i class="fa-solid fa-image menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_bill %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:generateBill' %}">
           <span class="menu-title">Generate Bills</span>
-          <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+          <!-- <i class="mdi mdi-format-list-bulleted menu-icon"></i> -->
+          <i class="fa-solid fa-file-invoice-dollar menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_form %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:generateForms' %}">
           <span class="menu-title">Generate Forms</span>
-          <i class="mdi mdi-chart-bar menu-icon"></i>
+          <!-- <i class="mdi mdi-chart-bar menu-icon"></i> -->
+          <i class="fa-solid fa-file-contract menu-icon"></i> 
         </a>
       </li>
       <li class="nav-item {% if is_document %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:documents' %}">
           <span class="menu-title">Documents</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-file menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_software %} active {% endif %}">
         <a class="nav-link"  href="{% url 'web:software' %}">
           <span class="menu-title">Softwares</span>
-          <i class="menu-arrow"></i>
-          <i class="mdi mdi-medical-bag menu-icon"></i>
+         
+          <!-- <i class="mdi mdi-medical-bag menu-icon"></i> -->
+          <i class="fa-brands fa-android menu-icon"></i>
         </a>
         <!-- <div class="collapse" id="general-pages">
           <ul class="nav flex-column sub-menu">
@@ -81,50 +86,59 @@
       <li class="nav-item {% if is_tool %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:tools' %}">
           <span class="menu-title">Tools</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-screwdriver-wrench menu-icon"></i>
         </a>
       </li>
 
       <li class="nav-item {% if is_tip %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:marketingTip' %}">
           <span class="menu-title">Marketing Tips</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-lines-leaning menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_idea %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:otherIdea' %}">
           <span class="menu-title">Other Ideas</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-lightbulb menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_portal %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:agencyPortal' %}">
           <span class="menu-title">Agency Portals</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-globe menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_backservice %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:backOfficeServices' %}">
           <span class="menu-title">Back Office Services</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-house-laptop menu-icon"></i>
+          
         </a>
       </li>
       <li class="nav-item {% if is_bonus %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:bonus' %}">
           <span class="menu-title">Bonus for USK Agent</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-award menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_profile %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:profile' %}">
           <span class="menu-title">My Account</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-user menu-icon"></i>
         </a>
       </li>
       <li class="nav-item {% if is_support %} active {% endif %}">
         <a class="nav-link" href="{% url 'web:support' %}">
           <span class="menu-title">Support</span>
-          <i class="mdi mdi-table-large menu-icon"></i>
+          <!-- <i class="mdi mdi-table-large menu-icon"></i> -->
+          <i class="fa-solid fa-hands-holding-child menu-icon"></i>
         </a>
       </li>
       

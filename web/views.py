@@ -42,18 +42,18 @@ def index(request):
     return render(request,'web/index.html',context)
 
 
-def service(request):
+def serviceHead(request):
     context = {
         "is_service":True,
     }
-    return render(request,'web/service.html',context)
+    return render(request,'web/service-head.html',context)
 
 
-def subService(request):
+def service(request):
     context = {
         
     }
-    return render(request,'web/sub-services.html',context)
+    return render(request,'web/services.html',context)
 
 
 def serviceDetails(request):

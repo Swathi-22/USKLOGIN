@@ -17,15 +17,16 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{% static 'web/images/FAV.png' %}" />
-
-    <link rel="stylesheet" href="{% static 'web/css/fontawesomall.min.css' %}">
-
+    
+    
     <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}">
-
     <link rel="stylesheet" href="{% static 'web/css/owl.theme.default.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
   </head>
   <body>
 
@@ -40,6 +41,8 @@
         {% endblock %}
         </div>
         <!-- page-body-wrapper ends -->
+        {% include 'web/partials/footer.html' %}
+        
     </div>
 
 
@@ -56,16 +59,16 @@
     <script src="{% static 'web/js/hoverable-collapse.js' %}"></script>
     <script src="{% static 'web/js/misc.js' %}"></script>
     <!-- endinject -->
+    <script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
     <!-- Custom js for this page -->
     <script src="{% static 'web/js/dashboard.js' %}"></script>
     <script src="{% static 'web/js/todolist.js' %}"></script>
+
     <!-- End custom js for this page -->
 
 
-    <script src="{% static 'web/js/fontawesmeall.min.js' %}"></script>
+  
 
-    <script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
   </body>
 
-<!-- Mirrored from www.bootstrapdash.com/demo/purple-admin-free/{% url 'web:index' %} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 11:19:07 GMT -->
 </html>
