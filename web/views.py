@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+from .forms import *
 
+
+@csrf_exempt
 def login(request):
     context = {
 
@@ -7,7 +11,12 @@ def login(request):
     return render(request,'web/login.html',context)
 
 
+@csrf_exempt
 def register(request):
+    user_form = UserRegistrationForm()
+    if request.method == "POST":
+        user_form = UserRegistrationForm(request.POST)
+
     context = {
 
     }
@@ -75,6 +84,13 @@ def generateBill(request):
         "is_bill":True,
     }
     return render(request,'web/generate-bill.html',context)
+
+
+def invoice(request):
+    context = {
+        "is_bill":True,
+    }
+    return render(request,'web/invoices.html',context)
 
 
 def generateForms(request):

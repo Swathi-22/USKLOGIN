@@ -16,6 +16,7 @@ urlpatterns =[
     path('service-details/',views.serviceDetails,name='serviceDetails'),
     path('generate-poster/',views.generatePoster,name='generatePoster'),
     path('generate-bill/',views.generateBill,name='generateBill'),
+    path('invoice/',views.invoice,name='invoice'),
     path('generate-form/',views.generateForms,name='generateForms'),
     path('documents/',views.documents,name='documents'),
     path('softwares/',views.software,name='software'),
