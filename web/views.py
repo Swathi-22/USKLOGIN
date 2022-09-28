@@ -1,6 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
+import razorpay
+from .models import Order
+import json
+from django.http import HttpResponseBadRequest
+
 
 
 @csrf_exempt
@@ -13,12 +18,14 @@ def login(request):
 
 @csrf_exempt
 def register(request):
-    user_form = UserRegistrationForm()
+    user_form = UserRegistrationForm(request.POST or None)
+    print(user_form)
     if request.method == "POST":
-        user_form = UserRegistrationForm(request.POST)
-
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('web:order_payment')
     context = {
-
+        'user_form':user_form
     }
     return render(request,'web/register.html',context)
 
@@ -161,3 +168,108 @@ def support(request):
         "is_support":True,
     }
     return render(request,'web/support.html',context)
+
+
+def termsConditions(request):
+    context = {
+        
+    }
+    return render(request,'web/terms&conditions.html',context)
+
+
+def payment(request):
+    context = {
+        
+    }
+    return render(request,'web/payment.html',context)
+
+
+def paymentsuccess(request):
+    context = {
+        
+    }
+    return render(request,'web/paymentsuccess.html',context)
+
+
+
+# authorize razorpay client with API Keys.
+razorpay_client = razorpay.Client(auth=("rzp_test_gK01XfmKtlAa9L", "afRPwwosjKxVWtD2UGyhHyVD"))
+ 
+ 
+def order_payment(request):
+    currency = 'INR'
+    amount = 20000  # Rs. 200
+ 
+    # Create a Razorpay Order
+    razorpay_order = razorpay_client.order.create(dict(amount=amount,
+                                                       currency=currency,
+                                                       payment_capture='0'))
+ 
+    # order id of newly created order.
+    razorpay_order_id = razorpay_order['id']
+    callback_url = '/paymentsuccess/'
+ 
+    # we need to pass these details to frontend.
+    context = {}
+    context['razorpay_order_id'] = razorpay_order_id
+    context['razorpay_merchant_key'] = "rzp_test_gK01XfmKtlAa9L"
+    context['razorpay_amount'] = amount
+    context['currency'] = currency
+    context['callback_url'] = callback_url
+ 
+    return render(request, 'web/payment.html', context=context)
+ 
+ 
+# we need to csrf_exempt this url as
+# POST request will be made by Razorpay
+# and it won't have the csrf token.
+@csrf_exempt
+def paymenthandler(request):
+ 
+    # only accept POST request.
+    if request.method == "POST":
+        try:
+           
+            # get the required parameters from post request.
+            payment_id = request.POST.get('razorpay_payment_id', '')
+            razorpay_order_id = request.POST.get('razorpay_order_id', '')
+            signature = request.POST.get('razorpay_signature', '')
+            params_dict = {
+                'razorpay_order_id': razorpay_order_id,
+                'razorpay_payment_id': payment_id,
+                'razorpay_signature': signature
+            }
+ 
+            # verify the payment signature.
+            result = razorpay_client.utility.verify_payment_signature(
+                params_dict)
+            if result is not None:
+                amount = 20000  # Rs. 200
+                try:
+ 
+                    # capture the payemt
+                    razorpay_client.payment.capture(payment_id, amount)
+ 
+                    # render success page on successful caputre of payment
+                    return render(request, 'paymentsuccess.html')
+                except:
+ 
+                    # if there is an error while capturing payment.
+                    return render(request, 'paymentfail.html')
+            else:
+ 
+                # if signature verification fails.
+                return render(request, 'paymentsuccess.html')
+        except:
+ 
+            # if we don't find the required parameters in POST data
+            return HttpResponseBadRequest()
+    else:
+       # if other than POST request is made.
+        return HttpResponseBadRequest()
+
+
+
+
+
+

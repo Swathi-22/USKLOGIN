@@ -27,6 +27,11 @@ urlpatterns =[
     path('back-office-services/',views.backOfficeServices,name='backOfficeServices'),
     path('bonus/',views.bonus,name='bonus'),
     path('support/',views.support,name='support'),
+    path('terms-and-conditions/',views.termsConditions,name='termsConditions'),
+    path('payment/',views.order_payment,name='order_payment'),
+    path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
+    path('paymentsuccess/',views.paymentsuccess,name='paymentsuccess'),
+
 
 
 ]

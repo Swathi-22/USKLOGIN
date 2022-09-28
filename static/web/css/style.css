@@ -13989,7 +13989,8 @@ transition: all ease 0.8s;
   font-size: 0.95rem;
   font-weight: 900;
   cursor: pointer;
-  user-select: none
+  user-select: none;
+  margin-top: -19px;
 }
 
 .wrapper .option input {
@@ -14055,7 +14056,7 @@ transition: all ease 0.8s;
 }
 
 .wrapper .register:hover{
-  background-color: #3785bde0;
+  background-color: #333a83;
 }
 
 .wrapper a{
@@ -14099,3 +14100,4 @@ transition: all ease 0.8s;
 .bg-blue{
   background-color: #0617486e;
 }
+

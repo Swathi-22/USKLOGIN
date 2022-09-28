@@ -1,8 +1,10 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <!-- Mirrored from www.bootstrapdash.com/demo/purple-admin-free/{% url 'web:index' %} by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 11:18:01 GMT -->
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,38 +19,45 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{% static 'web/images/FAV.png' %}" />
-    
-    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="{% static 'web/css/owl.carousel.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/owl.theme.default.css' %}">
-    
+
     <link rel="stylesheet" href="{% static 'web/css/style.css' %}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  </head>
-  <body>
+    <style>
+        .status{
+            text-align: center;
+            color: #fff;
+            margin: 250px 0px;   
+        }
+    </style>
+</head>
 
+<body style="background-color:#f2edf3 ;">
 
-    <div class="container-scroller">
-        {% include 'web/partials/header.html' %}
-        <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        {% include 'web/partials/sidebar.html' %}
-        {% block content %}
-
-        {% endblock %}
+    <div class="container">
+        <div class="row">
+            <form>
+                {% csrf_token %}
+                <h1 style="color:black ;text-align: center;">Your Payment is {{status}}</h1>
+            </form>
+            
         </div>
-        <!-- page-body-wrapper ends -->
-        {% include 'web/partials/footer.html' %}
-        
     </div>
 
 
-<!-- container-scroller -->
+
+    <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{% static 'web/vendors/js/vendor.bundle.base.js' %}"></script>
     <!-- endinject -->
@@ -63,20 +72,19 @@
     <!-- endinject -->
     <script src="{% static 'web/js/owl.carousel.min.js' %}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
-   
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'web/js/main.js' %}"></script>
     <!-- Custom js for this page -->
     <script src="{% static 'web/js/dashboard.js' %}"></script>
     <script src="{% static 'web/js/todolist.js' %}"></script>
 
-
     <!-- End custom js for this page -->
 
 
-  
 
-  </body>
+
+</body>
 
 </html>
