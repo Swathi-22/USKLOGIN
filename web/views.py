@@ -2,9 +2,9 @@ from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
 import razorpay
-from .models import Order
-import json
 from django.http import HttpResponseBadRequest
+from services.models import ServiceHeads
+from web.models import LatestNews
 
 
 
@@ -52,31 +52,14 @@ def settings(request):
 
 
 def index(request):
+    service_head = ServiceHeads.objects.all()
+    latest_news = LatestNews.objects.all().last()
     context = {
         "is_index":True,
+        'service_head':service_head,
+        'latest_news':latest_news,
     }
     return render(request,'web/index.html',context)
-
-
-def serviceHead(request):
-    context = {
-        "is_service":True,
-    }
-    return render(request,'web/service-head.html',context)
-
-
-def service(request):
-    context = {
-        
-    }
-    return render(request,'web/services.html',context)
-
-
-def serviceDetails(request):
-    context = {
-        
-    }
-    return render(request,'web/service-details.html',context)
 
 
 def generatePoster(request):
@@ -191,6 +174,14 @@ def paymentsuccess(request):
     return render(request,'web/paymentsuccess.html',context)
 
 
+def paymentfail(request):
+    context = {
+        
+    }
+    return render(request,'web/paymentfail.html',context)
+
+
+
 
 # authorize razorpay client with API Keys.
 razorpay_client = razorpay.Client(auth=("rzp_test_gK01XfmKtlAa9L", "afRPwwosjKxVWtD2UGyhHyVD"))
@@ -251,15 +242,15 @@ def paymenthandler(request):
                     razorpay_client.payment.capture(payment_id, amount)
  
                     # render success page on successful caputre of payment
-                    return render(request, 'paymentsuccess.html')
+                    return render(request, 'web/paymentsuccess.html')
                 except:
  
                     # if there is an error while capturing payment.
-                    return render(request, 'paymentfail.html')
+                    return render(request, 'web/paymentfail.html')
             else:
  
                 # if signature verification fails.
-                return render(request, 'paymentsuccess.html')
+                return render(request, 'web/paymentsuccess.html')
         except:
  
             # if we don't find the required parameters in POST data

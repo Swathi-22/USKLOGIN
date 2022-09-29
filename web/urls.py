@@ -11,9 +11,6 @@ urlpatterns =[
     path('profile/',views.profile,name='profile'),
     path('settings/',views.settings,name='settings'),
     path('dashboard/',views.index,name='index'),
-    path('services-head/',views.serviceHead,name='serviceHead'),
-    path('services/',views.service,name='service'),
-    path('service-details/',views.serviceDetails,name='serviceDetails'),
     path('generate-poster/',views.generatePoster,name='generatePoster'),
     path('generate-bill/',views.generateBill,name='generateBill'),
     path('invoice/',views.invoice,name='invoice'),
@@ -31,6 +28,7 @@ urlpatterns =[
     path('payment/',views.order_payment,name='order_payment'),
     path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
     path('paymentsuccess/',views.paymentsuccess,name='paymentsuccess'),
+    path('paymentfail/',views.paymentfail,name="paymentfail"),
 
 
 

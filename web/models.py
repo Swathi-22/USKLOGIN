@@ -1,8 +1,9 @@
+
 from unicodedata import name
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from .constants import PaymentStatus
-from django.db.models.fields import CharField
+
 
 
 class UserRegistration(models.Model):
@@ -15,22 +16,11 @@ class UserRegistration(models.Model):
     category = models.CharField(max_length=200,choices=CATEGORY_CHOICES) 
 
 
+class LatestNews(models.Model):
+    news = models.TextField()
 
-class Order(models.Model):
-    name = CharField(("Customer Name"), max_length=254, blank=False, null=False)
-    amount = models.FloatField(("Amount"), null=False, blank=False)
-    status = CharField(("Payment Status"),
-        default=PaymentStatus.PENDING,
-        max_length=254,
-        blank=False,
-        null=False,
-    )
-    provider_order_id = models.CharField(("Order ID"), max_length=40, null=False, blank=False
-    )
-    payment_id = models.CharField(("Payment ID"), max_length=36, null=False, blank=False
-    )
-    signature_id = models.CharField(("Signature ID"), max_length=128, null=False, blank=False
-    )
 
-    def __str__(self):
-        return f"{self.id}-{self.name}-{self.status}"
+    class Meta:
+        verbose_name_plural = ("Lates News")
+
+

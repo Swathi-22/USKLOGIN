@@ -6,6 +6,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('web.urls',namespace="web")),
+    path('',include('services.urls',namespace="services")),
 
     path('tinymce/', include('tinymce.urls')),
 

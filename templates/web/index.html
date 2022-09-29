@@ -9,80 +9,26 @@
     <!-- service head display -->
     <section>
       <div class="row">
+
+        {% for each_service_head in service_head %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4 ">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
+            <a href="{% url 'services:service' %}" class="serviec-main-head-a">{{each_service_head.title}}</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
+        {% endfor %}
 
+
+        {% comment %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
+            <a href="{% url 'services:service' %}" class="serviec-main-head-a">Service Heading 1</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
+        {% endcomment %}
       </div>
       <div class="text-center py-5 ">
-        <a href="{% url 'web:serviceHead' %}" class="show-more badge-gradient-info">Show More</a>
+        <a href="{% url 'services:serviceHead' %}" class="show-more badge-gradient-info">Show More</a>
       </div>
     </section>
 
@@ -90,8 +36,7 @@
     <section class="py-2">
       <div class="alert alert-info">
         <span class="text1">
-          <marquee><b>Rajasthan political crisis: All you need to know about the likely scenarios
-            </b></marquee>
+          <marquee><b>{{latest_news.news}}</b></marquee>
         </span>
       </div>
     </section>

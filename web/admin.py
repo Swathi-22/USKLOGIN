@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserRegistration,Order
+from .models import LatestNews, UserRegistration
 
 
 
@@ -8,7 +8,6 @@ class UserRegistrationAdmin(admin.ModelAdmin):
     list_display = ( 'name','email','category',)
 
 
-@admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
-    list_display = ( 'name',)
-
+@admin.register(LatestNews)
+class LatestNewsAdmin(admin.ModelAdmin):
+    list_display =('news',)

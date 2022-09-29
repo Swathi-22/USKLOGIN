@@ -1,170 +1,39 @@
 {% extends 'web/base.html' %}
 {% block content %}
 {% load static %}
-<!-- <div class="page-wrapper">
-  <div class="content container-fluid">
-    <div class="row">
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
 
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-4 col-4 pb-4">
-        <div class="service-main-head">
-          <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-        </div>
-      </div>
-    </div>
-    
 
-  </div>
-</div> -->
-
-    <!-- partial -->
-    <div class="main-panel">
-      <div class="content-wrapper">
-         <!-- service head display -->
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <!-- service head display -->
     <section>
       <div class="row">
+
+        {% for each_service_head in service_head %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4 ">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
+            <a href="{% url 'services:service' %}" class="serviec-main-head-a">{{each_service_head.title}}</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
+        {% endfor %}
 
+
+        {% comment %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
+            <a href="{% url 'services:service' %}" class="serviec-main-head-a">Service Heading 1</a>
           </div>
         </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
-          <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'web:service' %}" class="serviec-main-head-a">Service Heading 1</a>
-          </div>
-        </div>
+        {% endcomment %}
+
       </div>
 
     </section>
 
-      </div>
-      <!-- content-wrapper ends -->
-    </div>
-    <!-- main-panel ends -->
+  </div>
+  <!-- content-wrapper ends -->
+</div>
+<!-- main-panel ends -->
 
 {% endblock %}
