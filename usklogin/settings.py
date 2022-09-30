@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 VERSATILEIMAGEFIELD_SETTINGS = {
-   
+
     'cache_length': 2592000,
     'cache_name': 'versatileimagefield_cache',
     'jpeg_resize_quality': 70,
@@ -117,15 +117,37 @@ VERSATILEIMAGEFIELD_SETTINGS = {
 
 
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "Asia/Kolkata"
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
+USE_L10N = False
+DATE_INPUT_FORMATS = (
+    "%d/%m/%Y",
+    "%d-%m-%Y",
+    "%d/%m/%y",
+    "%d %b %Y",
+    "%d %b, %Y",
+    "%d %b %Y",
+    "%d %b, %Y",
+    "%d %B, %Y",
+    "%d %B %Y",
+)
+DATETIME_INPUT_FORMATS = (
+    "%d/%m/%Y %H:%M:%S",
+    "%d/%m/%Y %H:%M",
+    "%d/%m/%Y",
+    "%d/%m/%y %H:%M:%S",
+    "%d/%m/%y %H:%M",
+    "%d/%m/%y",
+    "%Y-%m-%d %H:%M:%S",
+    "%Y-%m-%d %H:%M",
+    "%Y-%m-%d",
+
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
