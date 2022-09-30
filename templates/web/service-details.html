@@ -6,27 +6,46 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row ">
-                <h2 class="text-center pb-3">Service Name</h2>
+                <h2 class="text-center pb-3">{{services.title}}</h2>
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-5">
                 <h4>About this service</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{{services.about_service|safe}}</p>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <h4>Required Documents</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                <p>{{services.requirements|safe}}</p>
             </div>  
             
         </div>
         <div class="row pt-5">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 ">
                 <ul>
-                    <li>demo</li>
-                    <li>demo</li>
-                    <li>demo</li>
-                    <li>demo</li>
-                    <li>demo</li>
-                    <li>demo</li>
-                    <li>demo</li>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                            <li>സെർവിസിന് വരുന്ന ചാർജ് </li>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-7 charge-pad">
+                            : <span>&#8377; {{services.service_charge}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                            <li>സെർവിസിന് വാങ്ങാവുന്ന ചാർജ് </li>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-7 charge-pad">
+                            : <span> &#8377;  {{services.actual_service_charge}} </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                            <li>സെർവിസിന് വരുന്ന സമയം   </li>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-7 charge-pad">
+                            : <span>{{services.time_for_service}} </span>
+                        </div>
+                    </div>
+                     
+                   
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-6 ">

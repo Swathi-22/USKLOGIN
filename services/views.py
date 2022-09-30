@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from services.models import ServiceHeads,Services
 
 
@@ -20,8 +20,9 @@ def service(request,slug):
     return render(request,'web/services.html',context)
 
 
-def serviceDetails(request):
+def serviceDetails(request,slug):
+    services = get_object_or_404(Services,slug=slug)
     context = {
-        
+        'services':services,
     }
     return render(request,'web/service-details.html',context)

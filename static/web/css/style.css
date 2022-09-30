@@ -13237,6 +13237,9 @@ dl {
 
 /* Sidebar */
 .sidebar {
+  overflow-y: scroll;
+  height: 100vh;
+  /* position: fixed; */
   min-height: calc(100vh - 70px);
   background: #ffffff;
   font-family: "ubuntu-regular", sans-serif;
@@ -13608,137 +13611,114 @@ dl {
 
 /* new service */
 
-#gallery {
-  max-width: 960px;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 360px;
-}
-#gallery .thumbnail {
-  float: left;
-  position: relative;
-  width: 15%;
-  padding-bottom: 15%;
-  margin: 0.83%;
-  overflow: hidden;
-}
-#gallery .thumbnail:hover {
-  -webkit-box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 5px 5px 50px 0px rgba(0, 0, 0, 0.75);
-}
-#gallery .img-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-#gallery .img-container img {
-  width: auto;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-#gallery .img-container:hover .img-caption {
-  top: 0;
-  left: 0;
-}
-#gallery .img-container:hover .img-caption .btn-trans {
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid #f9e559;
-}
-#gallery .img-caption {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, .7);
+/* Image gallery stlyling */
+.container {
+  max-width: 900px;
+  margin: 0px auto 0;
   text-align: center;
 }
-#gallery .table {
-  display: table;
-}
-#gallery .table .table-cell {
-  display: table-cell;
-  vertical-align: middle;
-  border: 2px solid #f9e559;
-}
-#gallery .btn {
-  border: none;
-  font-size: inherit;
-  font-weight: 100;
-  color: rgba(249, 229, 89, 1);
+
+.container__img-holder {
+  max-width: 280px;
   display: inline-block;
-  text-transform: uppercase;
-  position: relative;
-  border: 1px solid #f9e559;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-left: 16px;
+  cursor: pointer;
 }
-#gallery .btn:before {
-  content: '';
+
+.container .container__img-holder:nth-child(3n+1) {
+  /* margin-left: 0; */
+}
+
+.container__img-holder img {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+
+/* Popup Styling */
+.img-popup {
+  position: fixed;
+  top: 150px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.img-popup img {
+  max-width: 65%;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+}
+
+.close-btn {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   position: absolute;
-  z-index: -1;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
-#gallery .btn::after {
-  line-height: 1;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
+
+.close-btn .bar {
+  height: 4px;
+  background: #333;
 }
-#gallery .btn-sep {
-  margin: 30px 0px;
+
+.close-btn .bar:nth-child(1) {
+  transform: rotate(45deg);
 }
-#gallery .btn-p {
-  font-size: 16px;
-  padding: 10px 20px;
+
+.close-btn .bar:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
 }
-#gallery .btn-trans {
-  background: rgba(249, 229, 89, 0);
-  color: #f9e559;
+
+.opened {
+  display: flex;
 }
-#gallery .btn-trans:hover {
-  background: rgba(255, 255, 255, 0.4);
+
+.opened img {
+  animation: animatepopup 1s ease-in-out .8s;
+  -webkit-animation: animatepopup .3s ease-in-out forwards;
 }
-#gallery .btn-trans:active {
-  background: rgba(255, 255, 255, 0.4);
+
+@keyframes animatepopup {
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+
 }
-@media screen and (max-width: 992px) {
-  #gallery .thumbnail {
-    width: 22%;
-    padding-bottom: 22%;
-    margin: 1.5%;
- }
-  #gallery .img-container:hover .img-caption {
-    top: 0;
-    left: 0;
- }
-  #gallery .img-caption {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .7);
-    text-align: center;
- }
-  #gallery .img-caption a {
-    color: #f9e559;
- }
+
+@media screen and (max-width: 880px) {
+
+  .container .container__img-holder:nth-child(3n+1) {
+    margin-left: 16px;
+  }
+
 }
-@media screen and (max-width: 720px) {
-  #gallery .thumbnail {
-    width: 29%;
-    padding-bottom: 29%;
-    margin: 2.16%;
- }
-}
-@media screen and (max-width: 470px) {
-  #gallery .thumbnail {
-    width: 44%;
-    padding-bottom: 44%;
-    margin: 3%;
- }
-}
+
+
  
 
 .service-heading{
@@ -13854,6 +13834,12 @@ transition: all ease 0.8s;
   border-radius: 5px;
 }
 @media only screen and (max-width:576px){
+  .gallery__content--flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0px -14px;
+}
   .view-more{
     background: linear-gradient(to right, #ffbf96, #fe7096) !important;
     color: #fff;
@@ -14101,3 +14087,60 @@ transition: all ease 0.8s;
   background-color: #0617486e;
 }
 
+
+@media only screen and (min-width:768px){
+  .img-popup {
+    position: fixed;
+    top: 125px;
+    right: 0;
+    bottom: 0;
+    left: 236px;
+    background: rgba(255, 255, 255, .5);
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* display: none; */
+}
+}
+
+
+/* =======sidebar */
+#sidebar-nav {
+  width:150px;
+  border:1px solid #ddd;
+  margin:0;
+  padding:0;
+  float:left;
+}
+#sidebar-nav li {
+  list-style:none;
+  border:1px solid #ddd;
+  margin:10px;
+  padding:2px;
+}
+#content {
+  height:2000px;
+  width:500px;
+  padding:10px;
+  border:1px solid #ddd;
+  margin:0 0 10px 5px;
+  float:right;
+}
+#footer {
+clear: both;
+  height:800px;
+  border:1px solid green;
+  background-color:#ddd;
+}
+.clear {
+  clear:both;
+}
+/* Sticky our navbar on window scroll */
+#sidebar-nav.sticky {
+  position:fixed;
+  top:5px;
+}
+
+.charge-pad{
+  padding-top: 4px;
+}

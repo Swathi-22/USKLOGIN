@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LatestNews, UserRegistration
+from .models import LatestNews, UserRegistration,NewServicePoster,ImportantPoster
 
 
 
@@ -11,3 +11,13 @@ class UserRegistrationAdmin(admin.ModelAdmin):
 @admin.register(LatestNews)
 class LatestNewsAdmin(admin.ModelAdmin):
     list_display =('news',)
+
+
+@admin.register(NewServicePoster)
+class NewServicePosterAdmin(admin.ModelAdmin):
+    list_display =('id','image',)
+
+
+@admin.register(ImportantPoster)
+class ImportantPosterAdmin(admin.ModelAdmin):
+    list_display =('id','image',)

@@ -2,8 +2,7 @@
 from unicodedata import name
 from unittest.util import _MAX_LENGTH
 from django.db import models
-from .constants import PaymentStatus
-
+from versatileimagefield.fields import VersatileImageField,PPOIField
 
 
 class UserRegistration(models.Model):
@@ -19,8 +18,24 @@ class UserRegistration(models.Model):
 class LatestNews(models.Model):
     news = models.TextField()
 
-
     class Meta:
         verbose_name_plural = ("Lates News")
 
+
+
+class NewServicePoster(models.Model):
+    image = VersatileImageField('Image',upload_to='New_Service/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("New Service Poster")
+
+
+
+class ImportantPoster(models.Model):
+    image = VersatileImageField('Image',upload_to='Importants/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Important Poster")
 

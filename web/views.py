@@ -4,7 +4,7 @@ from .forms import *
 import razorpay
 from django.http import HttpResponseBadRequest
 from services.models import ServiceHeads
-from web.models import LatestNews
+from web.models import LatestNews,NewServicePoster,ImportantPoster
 
 
 
@@ -54,10 +54,14 @@ def settings(request):
 def index(request):
     service_head = ServiceHeads.objects.all()
     latest_news = LatestNews.objects.all().last()
+    new_service_poster = NewServicePoster.objects.all()
+    important_poster = ImportantPoster.objects.all()
     context = {
         "is_index":True,
         'service_head':service_head,
         'latest_news':latest_news,
+        'new_service_poster':new_service_poster,
+        'important_poster':important_poster,
     }
     return render(request,'web/index.html',context)
 

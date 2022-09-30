@@ -13,7 +13,7 @@
         {% for each_service_head in service_head %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4 ">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'services:service' %}" class="serviec-main-head-a">{{each_service_head.title}}</a>
+            <a href="{% url 'services:service' each_service_head.slug %}" class="serviec-main-head-a">{{each_service_head.title}}</a>
           </div>
         </div>
         {% endfor %}
@@ -44,125 +44,42 @@
     <!-- new services -->
     <section class="py-5">
       <h3 class="pb-4 service-heading">NEW SERVICES</h3>
-      <section id="gallery">
+      <div class="container">
+        {% for posters in new_service_poster %}
+        <div class="container__img-holder">
+          <img src="{{posters.image.url}}" alt="Image">
+        </div>
+        {% endfor %}
+      </div>
 
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
+      <div class="img-popup">
+        <img src="" alt="Popup Image">
+        <div class="close-btn">
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-      </section>
+      </div>
+
     </section>
 
     <!-- importants -->
     <section class="pt-3">
       <h3 class="pb-4 service-heading">IMPORTANT</h3>
-      <section id="gallery">
+      <div class="container">
+        {% for posters in important_poster %}
+        <div class="container__img-holder">
+          <img src="{{posters.image.url}}" alt="Image">
+        </div>
+        {% endfor %}
+      </div>
 
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
+      <div class="img-popup">
+        <img src="" alt="Popup Image">
+        <div class="close-btn">
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-        <div class="thumbnail">
-          <div class="img-container"><a href=""><img
-                src="https://41.media.tumblr.com/c5d1ac7b9669b3bbb20ebb8444cb702a/tumblr_nxrgstujWX1sfie3io1_1280.jpg"
-                alt="..." />
-          </div>
-        </div>
-      </section>
+      </div>
     </section>
   </div>
   <!-- content-wrapper ends -->
