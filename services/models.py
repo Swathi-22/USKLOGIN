@@ -20,6 +20,7 @@ class Services(models.Model):
     title = models.CharField(max_length = 225)
     image = VersatileImageField('Image',upload_to='service/',ppoi_field='ppoi')
     ppoi = PPOIField('Image PPOI')
+    link_to_official_website = models.URLField()
     about_service = HTMLField(blank=True, null=True)
     requirements = HTMLField(blank= True,null=True)
     service_charge = models.IntegerField()

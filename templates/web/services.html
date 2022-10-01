@@ -4,13 +4,16 @@
 
 
 <!-- partial -->
-<div class="main-panel">
-  <div class="content-wrapper">
+<div class="main-panel " id="demo">
+  <div class="content-wrapper" id="demo2">
     <div class="row">
       {% for subservice in services %}
       <div class="col-lg-3 col-md-3 col-sm-6 col-6 pb-3">
         <div class="serviceBox">
-         <img src="{{subservice.image.crop.179x179}}" class="sub-service-img pb-2" alt="">
+          <a href="">
+
+            <img src="{{subservice.image.crop.179x179}}" class="sub-service-img pb-2" alt="">
+          </a>
           <h3 class="title">{{subservice.title}}</h3>
           <div class="pt-2">
             <a href="{% url 'services:serviceDetails' subservice.slug %}" class="view-more">View More</a>

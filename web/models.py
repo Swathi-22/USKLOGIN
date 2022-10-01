@@ -29,8 +29,8 @@ class UserRegistration(BaseModel):
     class Meta:
         verbose_name_plural = ("Users")
 
-        def __str__(self):
-            return str(self.name)
+    def __str__(self):
+        return str(self.name)
 
 
 class LatestNews(models.Model):
