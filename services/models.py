@@ -25,7 +25,9 @@ class Services(models.Model):
     requirements = HTMLField(blank= True,null=True)
     service_charge = models.IntegerField()
     actual_service_charge = models.IntegerField()
-    time_for_service = models.CharField(max_length=100) 
+    time_for_service = models.CharField(max_length=100)
+    video_tutorial = models.URLField()
+    guidline = models.URLField()
     slug=models.SlugField(unique=True)
 
     class Meta:

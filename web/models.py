@@ -1,4 +1,5 @@
 
+from tabnanny import verbose
 from unicodedata import name
 from unittest.util import _MAX_LENGTH
 from django.db import models
@@ -39,6 +40,9 @@ class LatestNews(models.Model):
     class Meta:
         verbose_name_plural = ("Lates News")
 
+    def __str__(self):
+        return str(self.news)
+
 
 
 class NewServicePoster(models.Model):
@@ -48,6 +52,9 @@ class NewServicePoster(models.Model):
     class Meta:
         verbose_name_plural = ("New Service Poster")
 
+    def __str__(self):
+        return str(self.image)
+
 
 
 class ImportantPoster(models.Model):
@@ -56,3 +63,56 @@ class ImportantPoster(models.Model):
 
     class Meta:
         verbose_name_plural = ("Important Poster")
+
+    def __str__(self):
+        return str(self.image)
+
+
+
+class CommonServicesPoster(models.Model):
+    image = VersatileImageField('Image',upload_to='CommonServices/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Common Services Poster")
+
+    def __str__(self):
+        return str(self.image)
+
+
+
+class FestivelPoster(models.Model):
+    image = VersatileImageField('Image',upload_to='FestivelPoster/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Festivel Poster")
+
+    def __str__(self):
+        return str(self.image)
+
+
+
+class ProfessionalPoster(models.Model):
+    image = VersatileImageField('Image',upload_to='ProfessionalPoster/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Professional Poster")
+
+    def __str__(self):
+        return str(self.image)
+
+
+
+class GenerateForms(models.Model):
+    file = models.FileField()
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Forms/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Generate Forms")
+
+    def __str__(self):
+        return str(self.name)

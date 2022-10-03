@@ -2,4 +2,39 @@
 {% block content %}
 {% load static %}
 
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+                {% for forms in generate_forms %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                    <div class="file-upload-box">
+                        <a href="">
+                            <div>
+                                <h6 class="text-center form-name pt-3">{{forms.name}}</h6>
+                            </div>
+                            <div class="py-3 text-center">
+                                <img src="{{forms.image.crop.100x100}}">
+                            </div>
+                            <!-- <p class="text-center">{{forms.file}}</p class="text-center"> -->
+                        </a>
+                        <a href="{{forms.file.url}}"  download="{{forms.file.url}}">
+                            <div class="pb-3">
+                                <div class="download-button text-center ">
+                                    <span class="text-center">Download File</span>
+                                </div>
+                            </div>
+                            
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
 {% endblock %}

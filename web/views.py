@@ -1,10 +1,13 @@
+from urllib import response
 from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
 import razorpay
-from django.http import HttpResponseBadRequest
-from services.models import ServiceHeads
-from web.models import LatestNews,NewServicePoster,ImportantPoster
+from django.http import Http404, HttpResponseBadRequest,HttpResponse
+from services.models import *
+from web.models import *
+import mimetypes
+import os
 
 
 
@@ -67,10 +70,27 @@ def index(request):
 
 
 def generatePoster(request):
+    common_services_poster = CommonServicesPoster.objects.all()
+    festivel_poster = FestivelPoster.objects.all()
+    professional_poster = ProfessionalPoster.objects.all()
     context = {
         "is_poster":True,
+        'common_services_poster':common_services_poster,
+        'festivel_poster':festivel_poster,
+        'professional_poster':professional_poster,
     }
     return render(request,'web/generate-poster.html',context)
+
+
+
+def download(request,path):
+    file_path = os.path.join(settings.MEDIA_ROOT,path)
+    if os.path.exists(file_path):
+        with open(file_path,'rb') as fh:
+            response=HttpResponse(fh.read(),content_type = 'application/file')
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response
+    raise Http404
 
 
 def generateBill(request):
@@ -88,10 +108,14 @@ def invoice(request):
 
 
 def generateForms(request):
+    generate_forms = GenerateForms.objects.all()
     context = {
         "is_form":True,
+        'generate_forms':generate_forms
     }
     return render(request,'web/generate-form.html',context)
+
+
 
 
 def documents(request):

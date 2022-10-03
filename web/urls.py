@@ -1,5 +1,7 @@
+import django
 from django.urls import path
 from . import views
+from django.views.static import serve
 
 app_name='web'
 
@@ -15,6 +17,7 @@ urlpatterns =[
     path('generate-bill/',views.generateBill,name='generateBill'),
     path('invoice/',views.invoice,name='invoice'),
     path('generate-form/',views.generateForms,name='generateForms'),
+    path('download/', serve, {'document_root': 'settings.MEDIA_ROOT'}),
     path('documents/',views.documents,name='documents'),
     path('softwares/',views.software,name='software'),
     path('tools/',views.tools,name='tools'),

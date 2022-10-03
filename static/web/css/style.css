@@ -13850,6 +13850,23 @@ transition: all ease 0.8s;
   border-radius: 5px;
 }
 @media only screen and (max-width:576px){
+  .download-button {
+    border: 1px solid #1e80e8;
+    padding: 5px 2px;
+    margin: 0px 37px !important;
+    border-radius: 9px;
+    background-color: #1e80e8;
+    color: #00ff4e;
+    font-size: 12px;
+}
+  .file-upload-box {
+    border: 2px dashed #1e80e8;
+    margin: 8px -17px !important;
+    padding: 0;
+    border-radius: 20px;
+    background-color: #f1f8fe;
+    min-height: 100px;
+}
   .service-detail-button {
     border: 1px solid #2d3d83;
     border-radius: 20px;
@@ -14245,3 +14262,30 @@ h2 em {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+/* =======================generate forms */
+.file-upload-box{
+  border: 2px dashed #1e80e8;
+  margin: 8px 22px;
+  padding: 0;
+  border-radius: 20px;
+  background-color: #f1f8fe;
+  min-height: 100px;
+}
+.download-button {
+  border: 1px solid #1e80e8;
+  padding: 5px 2px;
+  margin: 0px 44px;
+  border-radius: 9px;
+  background-color: #1e80e8;
+  color:#9dff00;
+  font-size: 12px;
+}
+.form-name{
+  background: -webkit-linear-gradient(5deg, #69009f, #0066ff 69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
