@@ -2,4 +2,30 @@
 {% block content %}
 {% load static %}
 
-{% endblock %}
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+            {% for services in back_office_services %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
+                    <a href="{{services.link}}">
+                        <div class="card-office">
+                            <div class="card-body-office">
+                                <img src="{{services.image.crop.194x194}}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{services.link}}">
+                        <button class="btn-hover-office color-6">{{services.name}}</button>
+                    </a>
+                </div>
+             {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+{% endblock %}}

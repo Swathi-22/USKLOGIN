@@ -1,4 +1,5 @@
 
+from os import link
 from tabnanny import verbose
 from unicodedata import name
 from unittest.util import _MAX_LENGTH
@@ -116,3 +117,103 @@ class GenerateForms(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+
+class Documents(models.Model):
+    file = models.FileField()
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Documents/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+
+    class Meta:
+        verbose_name_plural = ("Documents")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class Softwares(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Softwares/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Softwares")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class Tools(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Tools/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Tools")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class MarketingTips(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Marketing_Tip/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Marketing Tips")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class OtherIdeas(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Other_Ideas/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Other Ideas")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class AgencyPortal(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Agency_Portal/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Agency Portals")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class BackOfficeServices(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Back_Office_Service/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Back Office Service")
+
+    def __str__(self):
+        return str(self.name)
+
+

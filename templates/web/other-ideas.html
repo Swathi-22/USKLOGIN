@@ -2,4 +2,30 @@
 {% block content %}
 {% load static %}
 
-{% endblock %}
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+             {% for ideas in other_ideas %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
+                    <a href="{{ideas.link}}">
+                        <div class="card-idea">
+                            <div class="card-body-idea">
+                                <img src="{{ideas.image.crop.194x194}}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{ideas.link}}">
+                        <button class="btn-hover-idea color-6">{{ideas.name}}</button>
+                    </a>
+                </div>
+              {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+{% endblock %}}

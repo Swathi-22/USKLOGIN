@@ -2,4 +2,30 @@
 {% block content %}
 {% load static %}
 
-{% endblock %}
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+            {% for portals in agency_portal %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
+                    <a href="{{portals.link}}">
+                        <div class="card-portal">
+                            <div class="card-body-portal">
+                                <img src="{{portals.image.crop.194x194}}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{portals.link}}">
+                        <button class="btn-hover-portal color-6">{{portals.name}}</button>
+                    </a>
+                </div>
+             {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+{% endblock %}}

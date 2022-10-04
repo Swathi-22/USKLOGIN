@@ -2,4 +2,30 @@
 {% block content %}
 {% load static %}
 
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row ">
+             {% for each_tools in tools %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
+                    <a href="{{each_tools.link}}">
+                        <div class="card-tool">
+                            <div class="card-body-tool">
+                                <img src="{{each_tools.image.crop.194x194}}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{each_tools.link}}">
+                        <button class="btn-hover-tool color-6">{{each_tools.name}}</button>
+                    </a>
+                </div>
+              {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
 {% endblock %}

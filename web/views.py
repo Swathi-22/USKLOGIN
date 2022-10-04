@@ -82,17 +82,6 @@ def generatePoster(request):
     return render(request,'web/generate-poster.html',context)
 
 
-
-def download(request,path):
-    file_path = os.path.join(settings.MEDIA_ROOT,path)
-    if os.path.exists(file_path):
-        with open(file_path,'rb') as fh:
-            response=HttpResponse(fh.read(),content_type = 'application/file')
-            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
-            return response
-    raise Http404
-
-
 def generateBill(request):
     context = {
         "is_bill":True,
@@ -116,53 +105,76 @@ def generateForms(request):
     return render(request,'web/generate-form.html',context)
 
 
+def download(request,path):
+    file_path = os.path.join(settings.MEDIA_ROOT,path)
+    if os.path.exists(file_path):
+        with open(file_path,'rb') as fh:
+            response=HttpResponse(fh.read(),content_type = 'application/file')
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response
+    raise Http404
+
 
 
 def documents(request):
+    documents = Documents.objects.all()
     context = {
         "is_document":True,
+        'documents':documents,
     }
     return render(request,'web/documents.html',context)
 
 
 def software(request):
+    softwares = Softwares.objects.all()
     context = {
         "is_software":True,
+        'softwares':softwares,
     }
     return render(request,'web/softwares.html',context)
 
 
 def tools(request):
+    tools=Tools.objects.all()
     context = {
         "is_tool":True,
+        'tools':tools,
     }
     return render(request,'web/tools.html',context)
 
 
 def marketingTip(request):
+    marketing_tips = MarketingTips.objects.all()
     context = {
         "is_tip":True,
+        'marketing_tips':marketing_tips,
     }
     return render(request,'web/marketing-tip.html',context)
 
 
 def otherIdea(request):
+    other_ideas=OtherIdeas.objects.all()
     context = {
         "is_idea":True,
+        'other_ideas':other_ideas,
     }
     return render(request,'web/other-ideas.html',context)
 
 
 def agencyPortal(request):
+    agency_portal = AgencyPortal.objects.all()
     context = {
         "is_portal":True,
+        'agency_portal':agency_portal,
     }
     return render(request,'web/agency-portal.html',context)
 
 
 def backOfficeServices(request):
+    back_office_services=BackOfficeServices.objects.all()
     context = {
         "is_backservice":True,
+        'back_office_services':back_office_services,
     }
     return render(request,'web/back-office-services.html',context)
 

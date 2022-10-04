@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LatestNews, UserRegistration,NewServicePoster,ImportantPoster,CommonServicesPoster,FestivelPoster,ProfessionalPoster,GenerateForms
+from .models import *
 
 
 
@@ -41,3 +41,38 @@ class ProfessionalPosterAdmin(admin.ModelAdmin):
 @admin.register(GenerateForms)
 class GenerateFormsAdmin(admin.ModelAdmin):
     list_display =('name','file',)
+
+
+@admin.register(Documents)
+class DocumentsAdmin(admin.ModelAdmin):
+    list_display =('name','file',)
+
+
+@admin.register(Softwares)
+class SoftwaresAdmin(admin.ModelAdmin):
+    list_display =('name','link',)
+
+
+@admin.register(Tools)
+class ToolsAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
+
+
+@admin.register(MarketingTips)
+class MarketingTipsAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
+
+
+@admin.register(OtherIdeas)
+class OtherIdeasAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
+
+
+@admin.register(AgencyPortal)
+class AgencyPortalAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
+
+
+@admin.register(BackOfficeServices)
+class BackOfficeServicesAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
