@@ -29,7 +29,7 @@ class UserRegistration(BaseModel):
     category = models.CharField(max_length=200,choices=CATEGORY_CHOICES)
 
     class Meta:
-        verbose_name_plural = ("Users")
+        verbose_name_plural = ("Resgistered Users")
 
     def __str__(self):
         return str(self.name)
@@ -216,4 +216,31 @@ class BackOfficeServices(models.Model):
     def __str__(self):
         return str(self.name)
 
+
+
+class AgentBonus(models.Model):
+    name = models.CharField(max_length = 100)
+    image = VersatileImageField('Image',upload_to='Agent_Bonus/',ppoi_field='ppoi')
+    ppoi = PPOIField('Image PPOI')
+    link = models.URLField()
+
+    class Meta:
+        verbose_name_plural = ("Bonus for USK Agent")
+
+    def __str__(self):
+        return str(self.name)
+
+
+
+class SupportRequest(models.Model):
+    name = models.CharField(max_length = 100)
+    phone = models.CharField(max_length=50)
+    email = models.EmailField()
+    message = models.TextField()
+
+    class Meta:
+        verbose_name_plural = ("Support Request")
+
+    def __str__(self):
+        return str(self.name)
 

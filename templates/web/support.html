@@ -2,4 +2,63 @@
 {% block content %}
 {% load static %}
 
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                <div class="cards">
+                    <a href="{% url 'web:supportRequest' %}">
+                        <div class="cards-content">
+                            <span>REQUEST</span>
+                        </div> 
+                    </a>      
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                <div class="cards">
+                    <a href="">
+                        <div class="cards-content">
+                            <span>TICKET</span>
+                        </div>  
+                    </a>    
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                <div class="cards">
+                    <a href="">
+                        <div class="cards-content">
+                            <span>CALL</span>
+                        </div> 
+                    </a>       
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+                <div class="cards">
+                    <a href="">
+                        <div class="cards-content">
+                            <span>WHATSAPP</span>
+                        </div>
+                    </a>         
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-6 mx-auto">
+                    <div class="text-center cards-faq">
+                        <a href="">
+                            <div class="cards-content">
+                                <span>FAQ</span>
+                            </div> 
+                        </a>    
+                    </div>
+                </div>   
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
 {% endblock %}

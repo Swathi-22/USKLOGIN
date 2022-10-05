@@ -27,3 +27,15 @@ class UserRegistrationForm(forms.ModelForm):
         }
 
 
+class SupportRequestForm(forms.ModelForm):
+    # phone = forms.CharField(validators=[phone_number_validation])
+    class Meta:
+        model = SupportRequest
+        fields = '__all__'
+        widgets= {
+            'name': TextInput(attrs={'class':'form-control','name':'name','id':'name','required':'required','autocomplete':'off',}),
+            'phone': TextInput(attrs={'class':'form-control','name':'phoneno','id':'phoneno','required':'required','autocomplete':'off',}),
+            'email': EmailInput(attrs={'class':'form-control','name':'email','id':'email','required':'required','autocomplete':'off',}),
+            'message':Textarea(attrs={'class':"form-control",'name':"message",'id':'message','rows':"6",'autocomplete':'off',}),
+            
+        }

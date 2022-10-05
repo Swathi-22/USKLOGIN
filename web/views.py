@@ -8,7 +8,7 @@ from services.models import *
 from web.models import *
 import mimetypes
 import os
-
+import json
 
 
 @csrf_exempt
@@ -180,8 +180,10 @@ def backOfficeServices(request):
 
 
 def bonus(request):
+    agent_bonus = AgentBonus.objects.all()
     context = {
         "is_bonus":True,
+        'agent_bonus':agent_bonus,
     }
     return render(request,'web/bonus.html',context)
 
@@ -301,6 +303,29 @@ def paymenthandler(request):
 
 
 
+def supportRequest(request):
+    forms = SupportRequestForm(request.POST or None)
+    if request.method == 'POST':
+        if forms.is_valid():
+            data = forms.save(commit=False)
+            data.referral = "web"
+            data.save()
+            response_data = {
+                "status": "true",
+                "title": "Successfully Submitted",
+                "message": "Message successfully submitted"
+            }
+        else:
+            response_data = {
+                "status": "false",
+                "title": "Form validation error",
+                "message": repr(forms.errors)
+            }
+        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+    context={
+        'forms':forms
+    }
+    return render(request,'web/request.html',context)
 
 
 

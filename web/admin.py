@@ -76,3 +76,13 @@ class AgencyPortalAdmin(admin.ModelAdmin):
 @admin.register(BackOfficeServices)
 class BackOfficeServicesAdmin(admin.ModelAdmin):
     list_display=('name','link',)
+
+
+@admin.register(AgentBonus)
+class AgentBonusAdmin(admin.ModelAdmin):
+    list_display=('name','link',)
+
+
+@admin.register(SupportRequest)
+class SupportRequestAdmin(admin.ModelAdmin):
+    list_display=('name','email','phone',)

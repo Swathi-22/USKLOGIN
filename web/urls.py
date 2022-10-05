@@ -32,6 +32,7 @@ urlpatterns =[
     path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
     path('paymentsuccess/',views.paymentsuccess,name='paymentsuccess'),
     path('paymentfail/',views.paymentfail,name="paymentfail"),
+    path('support-request/',views.supportRequest,name="supportRequest"),
 
 
 

@@ -2,4 +2,30 @@
 {% block content %}
 {% load static %}
 
-{% endblock %}
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <section>
+            <div class="row">
+            {% for bonus_for_usk_agent in agent_bonus %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
+                    <a href="{{bonus_for_usk_agent.link}}">
+                        <div class="card-bonus">
+                            <div class="card-body-bonus">
+                                <img src="{{bonus_for_usk_agent.image.crop.194x194}}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{bonus_for_usk_agent.link}}">
+                        <button class="btn-hover-bonus color-6">{{bonus_for_usk_agent.name}}</button>
+                    </a>
+                </div>
+             {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+{% endblock %}}
