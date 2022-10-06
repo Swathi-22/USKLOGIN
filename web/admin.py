@@ -86,3 +86,8 @@ class AgentBonusAdmin(admin.ModelAdmin):
 @admin.register(SupportRequest)
 class SupportRequestAdmin(admin.ModelAdmin):
     list_display=('name','email','phone',)
+
+
+@admin.register(SupportTicket)
+class SupportTicketAdmin(admin.ModelAdmin):
+    list_display=('ticket_id','name','email','phone',)

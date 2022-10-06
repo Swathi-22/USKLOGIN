@@ -28,6 +28,7 @@ class Services(models.Model):
     time_for_service = models.CharField(max_length=100)
     video_tutorial = models.URLField()
     guidline = models.URLField()
+    upload_form = models.FileField()
     slug=models.SlugField(unique=True)
 
     class Meta:

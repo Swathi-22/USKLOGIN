@@ -2,4 +2,73 @@
 {% block content %}
 {% load static %}
 
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+        <div class="search-bar-bg">
+            <form action="{% url 'web:generateBill' %}" class="search-bar" traget="_blank" method="get">
+                {% csrf_token %}
+                <input type="text" placeholder="Search Services" name="q" id="search-tile">
+                <button type="submit"> <i class="fas fa-search"></i></button>
+
+            </form>
+        </div>
+        <div class="row pt-4" id="rowImageViewDiv">
+            {% for service_title in services_list %}
+            <div class="col-lg-4 col-md-4 col-sm-6 col-6" id="viewImageDiv">
+                <div class="white-button">
+                    <a href="#" target="_self" class="fl-button"><span class="fl-button-text">{{service_title.title}}</span></a>
+                </div>
+            </div> 
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!-- <script>
+    $(document).ready(function () {
+        $('#search-tile').keyup(function () {
+            var search_Key = $('#search-tile').val()
+            var serviecs_name = $('#service_name').val()
+            if (search_Key != '') {
+                $("#services_list").addClass("d-none");
+                var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
+                data = {
+                    'search_Key': search_Key,
+                    csrfmiddlewaretoken: csrftoken
+                }
+                $.ajax({
+                    url: '/search/?serviecs_name=' + serviecs_name,
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        $("#rowImageViewDiv").html('')
+                        for (var i = 0; i < response.jsonProductList.length; i++) {
+                            var html = ''
+                            html += '<div class="col-lg-4 col-md-4 col-sm-6 col-6" id="viewImageDiv">',  
+                            html += '<div class="white-button">',
+                            html += '<a href="#" target="_self" class="fl-button"><span class="fl-button-text">'+response.jsonProductList[i].serviecs_name+'</span></a>',
+                            html += '</div>',
+                            html += '</div>' 
+                            $("#rowImageViewDiv").append(html);
+                     }
+                    }
+                });
+            }
+            else {
+                $("#rowImageViewDiv").html('')
+                $("#services_list").removeClass("d-none");
+            }
+                     
+                })
+            })
+</script> -->
+
+
+
+
+
+
+
 {% endblock %}

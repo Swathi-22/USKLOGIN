@@ -9,6 +9,8 @@ from web.models import *
 import mimetypes
 import os
 import json
+from django.utils.decorators import method_decorator
+from django.http import JsonResponse
 
 
 @csrf_exempt
@@ -81,12 +83,40 @@ def generatePoster(request):
     }
     return render(request,'web/generate-poster.html',context)
 
-
+@method_decorator(csrf_exempt)
 def generateBill(request):
+    # services=Services.objects.all()
+    if 'q' in request.GET:
+        search_Key=request.GET['q']
+        services_list=Services.objects.filter(title__icontains=search_Key).order_by('-created_at')
+    else:
+        services_list=Services.objects.all()    
     context = {
         "is_bill":True,
+        # 'services':services,
+        'services_list':services_list,
     }
     return render(request,'web/generate-bill.html',context)
+
+    
+
+
+# @method_decorator(csrf_exempt)
+# def search_items(request):
+#     if request.POST:
+#         search_Key=request.POST['search_Key']
+#         services_list=Services.objects.filter(title=search_Key)
+#         jsonProductList=[]
+#         for services in services_list:
+#             data={
+#                 "id":services.id,
+#                 "service_name":services.title,
+
+#             }
+#             jsonProductList.append(data)
+#         return JsonResponse({"jsonProductList":jsonProductList})
+#     return JsonResponse({"Message":"Only POST method Allowed "})
+
 
 
 def invoice(request):
@@ -325,7 +355,33 @@ def supportRequest(request):
     context={
         'forms':forms
     }
-    return render(request,'web/request.html',context)
+    return render(request,'web/support-request.html',context)
+
+
+
+def supportTicket(request):
+    forms = SupportTicketForm(request.POST or None)
+    if request.method == 'POST':
+        if forms.is_valid():
+            data = forms.save(commit=False)
+            data.referral = "web"
+            data.save()
+            response_data = {
+                "status": "true",
+                "title": "Successfully Submitted",
+                "message": "Message successfully submitted"
+            }
+        else:
+            response_data = {
+                "status": "false",
+                "title": "Form validation error",
+                "message": repr(forms.errors)
+            }
+        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+    context={
+        'forms':forms
+    }
+    return render(request,'web/support-ticket.html',context)
 
 
 
