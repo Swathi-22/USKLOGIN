@@ -6,16 +6,16 @@
 <div class="main-panel " id="demo">
     <div class="content-wrapper" id="demo2">
         <div class="search-bar-bg">
-            <form action="{% url 'web:generateBill' %}" class="search-bar" traget="_blank" method="get">
+            <form class="search-bar" id="search-form" method="get" action="{% url 'web:generateBill' %}">
                 {% csrf_token %}
-                <input type="text" placeholder="Search Services" name="q" id="search-tile">
+                <input type="text" placeholder="Search Services" id="search-input">
                 <button type="submit"> <i class="fas fa-search"></i></button>
 
             </form>
         </div>
-        <div class="row pt-4" id="rowImageViewDiv">
-            {% for service_title in services_list %}
-            <div class="col-lg-4 col-md-4 col-sm-6 col-6" id="viewImageDiv">
+        <div class="row pt-4 " >
+            {% for service_title in services %}
+            <div class="col-lg-4 col-md-4 col-sm-6 col-6"  id="imageViewDiv">
                 <div class="white-button">
                     <a href="#" target="_self" class="fl-button"><span class="fl-button-text">{{service_title.title}}</span></a>
                 </div>
@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- <script>
@@ -65,8 +66,55 @@
             })
 </script> -->
 
+<!-- 
+<script>
+    const url = window.location.href
+    const searchForm = document.getElementById('search-form')
+    const searchInput = document.getElementById('search-input')
+    const result = document.getElementById('imageViewDiv')
+    const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+    
+
+    const sendSearchData = (services) => {
+        $.ajax({
+            type: 'POST',
+            url : 'search/',
+            data :{
+                'csrfmiddlewaretoken' : csrf,
+                'services':services,
+            },
+            success : (res) =>{
+                console.log(res.data)
+                const data=res.data
+                
+                if (Array.isArray(data)){
+                    console.log('we have an array')
+                } else {
+                    if (searchInput.value.length > 0){
+                        result.innerHTML = '<b>${data}</b>'
+                    } else {
+                        result.classList.add('not-visible')
+                    }
+                }
+            },
+            error: (err) =>{
+                console.log(err)
+            }
+        })
+    }
+    
+    searchInput.addEventListener('keyup', e=>{
+        console.log(e.target.value)
+ 
+        if (result.classList.add('not-visible')){
+            result.classList.remove('not-visible')  
+        }
 
 
+        sendSearchData(e.target.value)
+    })
+
+</script> -->
 
 
 

@@ -83,20 +83,52 @@ def generatePoster(request):
     }
     return render(request,'web/generate-poster.html',context)
 
-@method_decorator(csrf_exempt)
+
+# @method_decorator(csrf_exempt)
+# def generateBill(request):
+#     # services=Services.objects.all()
+#     if 'q' in request.GET:
+#         search_Key=request.GET['q']
+#         services_list=Services.objects.filter(title__icontains=search_Key) 
+#     else:
+#         services_list=Services.objects.all()    
+#     context = {
+#         "is_bill":True,
+#         # 'services':services,
+#         'services_list':services_list,
+#     }
+#     return render(request,'web/generate-bill.html',context)
+
+
+
 def generateBill(request):
-    # services=Services.objects.all()
-    if 'q' in request.GET:
-        search_Key=request.GET['q']
-        services_list=Services.objects.filter(title__icontains=search_Key).order_by('-created_at')
-    else:
-        services_list=Services.objects.all()    
+    services=Services.objects.all()   
     context = {
         "is_bill":True,
-        # 'services':services,
-        'services_list':services_list,
+        'services':services,
     }
     return render(request,'web/generate-bill.html',context)
+
+
+def searchResult(request):
+    if request.is_ajax():
+        res = None
+        services = request.POST.get('services')
+        service_search = Services.objects.filter(title__icontains=services)
+        if len(service_search) > 0 and len(services) > 0:
+            data = []
+            for i in service_search:
+                items = {
+                    'pk':i.pk,
+                    'name':i.title
+                }
+                data.append(items)
+            res = data
+        else:
+            res = 'No sevice found'
+        return JsonResponse({'data':res})
+    return JsonResponse({})
+    
 
     
 

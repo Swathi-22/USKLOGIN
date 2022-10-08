@@ -15275,3 +15275,7 @@ a.fl-button.fill {
 a.fl-button.fill:before{
 display:none
 }
+
+.not-visible{
+  display: none;
+}
