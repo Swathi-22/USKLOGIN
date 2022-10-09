@@ -293,9 +293,11 @@ razorpay_client = razorpay.Client(auth=("rzp_test_gK01XfmKtlAa9L", "afRPwwosjKxV
  
 def order_payment(request):
     currency = 'INR'
-    amount = 20000  # Rs. 200
- 
-    # Create a Razorpay Order
+    amount = 20000  # Rs. 200   
+    user = UserRegistration.objects.all()
+    for i in user:
+        username=i.phone
+    # Create a Razorpay Order,
     razorpay_order = razorpay_client.order.create(dict(amount=amount,
                                                        currency=currency,
                                                        payment_capture='0'))
@@ -354,7 +356,7 @@ def paymenthandler(request):
             else:
  
                 # if signature verification fails.
-                return render(request, 'web/paymentsuccess.html')
+                return render(request, 'web/paymentfail.html')
         except:
  
             # if we don't find the required parameters in POST data

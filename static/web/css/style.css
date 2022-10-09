@@ -15279,3 +15279,11 @@ display:none
 .not-visible{
   display: none;
 }
+
+.card-pay{
+    width: 100%;
+    background-color: #abd1c6 !important;
+    padding: 23px 23px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #000 85;
+}
