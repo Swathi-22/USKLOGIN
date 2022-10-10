@@ -148,7 +148,7 @@ DATETIME_INPUT_FORMATS = (
     "%Y-%m-%d",
 
 )
-
+        
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_URL = '/static/'

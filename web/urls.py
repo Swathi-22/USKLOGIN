@@ -32,8 +32,9 @@ urlpatterns =[
     path('support-ticket/',views.supportTicket,name="supportTicket"),
     path('FAQ/',views.F_A_Q,name="F_A_Q"),
     path('terms-and-conditions/',views.termsConditions,name='termsConditions'),
-    path('payment/',views.order_payment,name='order_payment'),
-    path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
+     path('payment/', views.order_payment,name="payment"),
+    path("callback/", views.callback, name="callback"),
+    # path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
     path('paymentsuccess/',views.paymentsuccess,name='paymentsuccess'),
     path('paymentfail/',views.paymentfail,name="paymentfail"),
     
