@@ -9,7 +9,7 @@
     <!-- service head display -->
     <section>
       <div class="row">
-
+        {% comment %}
         {% for each_service_head in service_head %}
         <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4 ">
           <div class="service-main-head text-center bg-gradient-danger">
@@ -17,15 +17,32 @@
           </div>
         </div>
         {% endfor %}
+        {% endcomment %}
 
 
-        {% comment %}
-        <div class="col-lg-3 col-md-2 col-sm-4 col-4 pb-4">
+        {% for service_heads in service_head %}
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-4 ">
           <div class="service-main-head text-center bg-gradient-danger">
-            <a href="{% url 'services:service' %}" class="serviec-main-head-a">Service Heading 1</a>
+            <a href="" class="serviec-main-head-a">{{service_heads.title}}</a>
+          </div>
+          <div class="row pt-3">  
+            {% for service in services %}
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6 pb-3">
+              <div class="serviceBox">
+                  <img src="{{service.image.crop.179x179}}" class="sub-service-img pb-2" alt="">
+                  <h3 class="title">{{service.title}}</h3>
+                <div>
+                  <a href="{{service.link_to_official_website}}" class="access">ACCESS</a>
+                  <a href="{% url 'services:serviceDetails' service.slug %}" class="view-more">DETAILS</a>
+                </div>
+              </div>
+            </div>
+           {% endfor %}
           </div>
         </div>
-        {% endcomment %}
+        {% endfor %}
+      
+        
 
       </div>
 

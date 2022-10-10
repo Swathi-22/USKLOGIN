@@ -49,7 +49,7 @@ $(document).ready(function() {
       })
       $( "#test" ).click(function() {
         $("#demo").toggleClass('main-panel-marg')
-        $("#demo2").addClass('content-div')
+        $("#demo2").toggleClass('content-div')
     
     });
  
@@ -133,7 +133,30 @@ $(document).on('submit','form.ajax', function(e) {
 }); 
 
 
+// ============================FAQ
+
+const toggleBtn = document.querySelectorAll('.toggle-btn');
+
+toggleBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.parentNode.classList.toggle('active')  //only toggles the parent node which is the '.faq-card' here
+    })
+})
+
+
     
 
-  
-    
+//   ============payment success alert     
+
+$('#pay-btn').click(function(){go(50)});
+$('#ok').click(function(){go(5000)});
+
+setTimeout(function(){go(50)},700);
+setTimeout(function(){go(500)},2000);
+
+function go(nr) {
+  $('.bb').fadeToggle(200);
+  $('.message').toggleClass('comein');
+  $('.check').toggleClass('scaledown');
+  $('#pay-btn').fadeToggle(nr);
+}

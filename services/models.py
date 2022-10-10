@@ -10,9 +10,12 @@ class ServiceHeads(models.Model):
 
     class Meta:
         verbose_name_plural = ("Service Head")
-
+    
     def __str__(self):
         return str(self.title)
+
+    def get_services(self):
+        return Services.objects.filter(service_head=self)
 
 
 class Services(models.Model):

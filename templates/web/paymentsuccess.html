@@ -46,6 +46,7 @@
 <body style="background-color:#f2edf3 ;">
 
     <div class="container">
+        {% comment %}
         <div class="row">
             <form method="POST" id="form">
                 {% csrf_token %}
@@ -53,6 +54,24 @@
             </form>
             
         </div>
+        {% endcomment %}
+        <div class="b"></div>
+        <div class="bb"></div>  
+        <div class="message">
+            <div class="check">
+              &#10004;
+            </div>
+            <p>
+              Success
+            </p>
+            <p>
+              Check your email for a booking confirmation. We'll see you soon!
+            </p>
+            <button id="ok">
+              OK
+            </button>
+          </div>
+          
     </div>
 
 

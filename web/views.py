@@ -257,6 +257,64 @@ def support(request):
     return render(request,'web/support.html',context)
 
 
+def supportRequest(request):
+    forms = SupportRequestForm(request.POST or None)
+    if request.method == 'POST':
+        if forms.is_valid():
+            data = forms.save(commit=False)
+            data.referral = "web"
+            data.save()
+            response_data = {
+                "status": "true",
+                "title": "Successfully Submitted",
+                "message": "Message successfully submitted"
+            }
+        else:
+            response_data = {
+                "status": "false",
+                "title": "Form validation error",
+                "message": repr(forms.errors)
+            }
+        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+    context={
+        'forms':forms
+    }
+    return render(request,'web/support-request.html',context)
+
+
+def F_A_Q(request):
+    Frequently_Asked_Questions= FAQ.objects.all()
+    context = {
+        'Frequently_Asked_Questions':Frequently_Asked_Questions,
+    }
+    return render(request,'web/faq.html',context)
+
+
+def supportTicket(request):
+    forms = SupportTicketForm(request.POST or None)
+    if request.method == 'POST':
+        if forms.is_valid():
+            data = forms.save(commit=False)
+            data.referral = "web"
+            data.save()
+            response_data = {
+                "status": "true",
+                "title": "Successfully Submitted",
+                "message": "Message successfully submitted"
+            }
+        else:
+            response_data = {
+                "status": "false",
+                "title": "Form validation error",
+                "message": repr(forms.errors)
+            }
+        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+    context={
+        'forms':forms
+    }
+    return render(request,'web/support-ticket.html',context)
+
+
 def termsConditions(request):
     context = {
         
@@ -289,14 +347,12 @@ def paymentfail(request):
 
 # authorize razorpay client with API Keys.
 razorpay_client = razorpay.Client(auth=("rzp_test_gK01XfmKtlAa9L", "afRPwwosjKxVWtD2UGyhHyVD"))
- 
- 
 def order_payment(request):
     currency = 'INR'
     amount = 20000  # Rs. 200   
-    user = UserRegistration.objects.all()
-    for i in user:
-        username=i.phone
+    # user = UserRegistration.objects.all()
+    # for i in user:
+    #     username=i.phone
     # Create a Razorpay Order,
     razorpay_order = razorpay_client.order.create(dict(amount=amount,
                                                        currency=currency,
@@ -322,7 +378,6 @@ def order_payment(request):
 # and it won't have the csrf token.
 @csrf_exempt
 def paymenthandler(request):
- 
     # only accept POST request.
     if request.method == "POST":
         try:
@@ -367,55 +422,7 @@ def paymenthandler(request):
 
 
 
-def supportRequest(request):
-    forms = SupportRequestForm(request.POST or None)
-    if request.method == 'POST':
-        if forms.is_valid():
-            data = forms.save(commit=False)
-            data.referral = "web"
-            data.save()
-            response_data = {
-                "status": "true",
-                "title": "Successfully Submitted",
-                "message": "Message successfully submitted"
-            }
-        else:
-            response_data = {
-                "status": "false",
-                "title": "Form validation error",
-                "message": repr(forms.errors)
-            }
-        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
-    context={
-        'forms':forms
-    }
-    return render(request,'web/support-request.html',context)
 
-
-
-def supportTicket(request):
-    forms = SupportTicketForm(request.POST or None)
-    if request.method == 'POST':
-        if forms.is_valid():
-            data = forms.save(commit=False)
-            data.referral = "web"
-            data.save()
-            response_data = {
-                "status": "true",
-                "title": "Successfully Submitted",
-                "message": "Message successfully submitted"
-            }
-        else:
-            response_data = {
-                "status": "false",
-                "title": "Form validation error",
-                "message": repr(forms.errors)
-            }
-        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
-    context={
-        'forms':forms
-    }
-    return render(request,'web/support-ticket.html',context)
 
 
 

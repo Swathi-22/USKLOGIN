@@ -28,13 +28,15 @@ urlpatterns =[
     path('back-office-services/',views.backOfficeServices,name='backOfficeServices'),
     path('bonus/',views.bonus,name='bonus'),
     path('support/',views.support,name='support'),
+    path('support-request/',views.supportRequest,name="supportRequest"),
+    path('support-ticket/',views.supportTicket,name="supportTicket"),
+    path('FAQ/',views.F_A_Q,name="F_A_Q"),
     path('terms-and-conditions/',views.termsConditions,name='termsConditions'),
     path('payment/',views.order_payment,name='order_payment'),
     path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
     path('paymentsuccess/',views.paymentsuccess,name='paymentsuccess'),
     path('paymentfail/',views.paymentfail,name="paymentfail"),
-    path('support-request/',views.supportRequest,name="supportRequest"),
-    path('support-ticket/',views.supportTicket,name="supportTicket"),
+    
 
 
 

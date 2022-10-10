@@ -5,7 +5,7 @@ from .models import *
 
 @admin.register(UserRegistration)
 class UserRegistrationAdmin(admin.ModelAdmin):
-    list_display = ( 'name','email','category',)
+    list_display = ( 'name','email','phone','category',)
 
 
 @admin.register(LatestNews)
@@ -91,3 +91,8 @@ class SupportRequestAdmin(admin.ModelAdmin):
 @admin.register(SupportTicket)
 class SupportTicketAdmin(admin.ModelAdmin):
     list_display=('ticket_id','name','email','phone',)
+
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display=('id','question',)
