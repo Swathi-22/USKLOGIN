@@ -38,7 +38,8 @@ class UserRegistration(BaseModel):
 
 
 class Order(models.Model):
-    name = models.CharField(("Customer Name"), max_length=254, blank=False, null=False)
+    name = models.ForeignKey(UserRegistration,on_delete=models.CASCADE)
+    # name = models.CharField(("Customer Name"), max_length=254, blank=False, null=False)
     amount = models.FloatField(("Amount"), null=False, blank=False)
     status = models.CharField(("Payment Status"),
         default=PaymentStatus.PENDING,

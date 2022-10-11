@@ -160,3 +160,4 @@ function go(nr) {
   $('.check').toggleClass('scaledown');
   $('#pay-btn').fadeToggle(nr);
 }
+

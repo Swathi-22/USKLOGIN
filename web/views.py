@@ -24,15 +24,66 @@ def login(request):
 @csrf_exempt
 def register(request):
     user_form = UserRegistrationForm(request.POST or None)
-    print(user_form)
-    if request.method == "POST":
-        if user_form.is_valid():
-            user_form.save()
-            return redirect('web:order_payment')
     context = {
         'user_form':user_form
     }
     return render(request,'web/register.html',context)
+
+
+
+def order_payment(request):
+    user_form = UserRegistrationForm(request.POST or None)
+    if request.method == "POST":
+        email = request.POST.get("email")
+        amount = 20000
+        if user_form.is_valid():
+            user_form.save()
+        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
+        razorpay_order = client.order.create({"amount":amount , "currency": "INR", "payment_capture": "1"})
+        obj = UserRegistration.objects.get(email=email)
+        order = Order.objects.create(name=obj, amount=amount, provider_order_id=razorpay_order["id"])
+        order.save()
+
+        return render(
+            request,
+            "web/payment.html",
+            {
+                # "callback_url": "https://" + "razorpaytask.herokuapp.com" + "/callback/",
+                "callback_url": "http://" + "127.0.0.1:8000" + "/callback/",
+                "razorpay_key": 'rzp_test_hC4pFTo1gvL3SV',
+                "order": order,
+            },
+        )
+    return render(request,"web/payment.html")
+
+
+@csrf_exempt
+def callback(request):
+    def verify_signature(response_data):
+        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
+        return client.utility.verify_payment_signature(response_data)
+
+    if "razorpay_signature" in request.POST:
+        payment_id = request.POST.get("razorpay_payment_id", "")
+        provider_order_id = request.POST.get("razorpay_order_id", "")
+        signature_id = request.POST.get("razorpay_signature", "")
+
+        order = Order.objects.get(provider_order_id=provider_order_id)
+
+        order.payment_id = payment_id
+        order.signature_id = signature_id
+        order.save()
+        if not verify_signature(request.POST):
+            order.status = PaymentStatus.FAILURE
+            order.save()
+            return render(request, "web/callback.html", context={"status": order.status})
+        else:
+            order.status = PaymentStatus.SUCCESS
+            order.save()
+            return render(request, "web/callback.html", context={"status": order.status})
+    else:
+        return render(request, "web/payment.html")
+
 
 
 def forgot_password(request):
@@ -84,22 +135,6 @@ def generatePoster(request):
     return render(request,'web/generate-poster.html',context)
 
 
-# @method_decorator(csrf_exempt)
-# def generateBill(request):
-#     # services=Services.objects.all()
-#     if 'q' in request.GET:
-#         search_Key=request.GET['q']
-#         services_list=Services.objects.filter(title__icontains=search_Key) 
-#     else:
-#         services_list=Services.objects.all()    
-#     context = {
-#         "is_bill":True,
-#         # 'services':services,
-#         'services_list':services_list,
-#     }
-#     return render(request,'web/generate-bill.html',context)
-
-
 
 def generateBill(request):
     services=Services.objects.all()   
@@ -128,26 +163,6 @@ def searchResult(request):
             res = 'No sevice found'
         return JsonResponse({'data':res})
     return JsonResponse({})
-    
-
-    
-
-
-# @method_decorator(csrf_exempt)
-# def search_items(request):
-#     if request.POST:
-#         search_Key=request.POST['search_Key']
-#         services_list=Services.objects.filter(title=search_Key)
-#         jsonProductList=[]
-#         for services in services_list:
-#             data={
-#                 "id":services.id,
-#                 "service_name":services.title,
-
-#             }
-#             jsonProductList.append(data)
-#         return JsonResponse({"jsonProductList":jsonProductList})
-#     return JsonResponse({"Message":"Only POST method Allowed "})
 
 
 
@@ -345,141 +360,6 @@ def paymentfail(request):
 
 
 
-# authorize razorpay client with API Keys.
-# razorpay_client = razorpay.Client(auth=("rzp_test_gK01XfmKtlAa9L", "afRPwwosjKxVWtD2UGyhHyVD"))
-# def order_payment(request):
-#     currency = 'INR'
-#     amount = 20000  # Rs. 200   
-#     # user = UserRegistration.objects.all()
-#     # for i in user:
-#     #     username=i.phone
-#     # Create a Razorpay Order,
-#     razorpay_order = razorpay_client.order.create(dict(amount=amount,
-#                                                        currency=currency,
-#                                                        payment_capture='0'))
- 
-#     # order id of newly created order.
-#     razorpay_order_id = razorpay_order['id']
-#     callback_url = '/paymentsuccess/'
- 
-#     # we need to pass these details to frontend.
-#     context = {}
-#     context['razorpay_order_id'] = razorpay_order_id
-#     context['razorpay_merchant_key'] = "rzp_test_gK01XfmKtlAa9L"
-#     context['razorpay_amount'] = amount
-#     context['currency'] = currency
-#     context['callback_url'] = callback_url
- 
-#     return render(request, 'web/payment.html', context=context)
- 
- 
-# we need to csrf_exempt this url as
-# POST request will be made by Razorpay
-# and it won't have the csrf token.
-# @csrf_exempt
-# def paymenthandler(request):
-#     # only accept POST request.
-#     if request.method == "POST":
-#         try:
-           
-#             # get the required parameters from post request.
-#             payment_id = request.POST.get('razorpay_payment_id', '')
-#             razorpay_order_id = request.POST.get('razorpay_order_id', '')
-#             signature = request.POST.get('razorpay_signature', '')
-#             params_dict = {
-#                 'razorpay_order_id': razorpay_order_id,
-#                 'razorpay_payment_id': payment_id,
-#                 'razorpay_signature': signature
-#             }
- 
-#             # verify the payment signature.
-#             result = razorpay_client.utility.verify_payment_signature(
-#                 params_dict)
-#             if result is not None:
-#                 amount = 20000  # Rs. 200
-#                 try:
- 
-#                     # capture the payemt
-#                     razorpay_client.payment.capture(payment_id, amount)
- 
-#                     # render success page on successful caputre of payment
-#                     return render(request, 'web/paymentsuccess.html')
-#                 except:
- 
-#                     # if there is an error while capturing payment.
-#                     return render(request, 'web/paymentfail.html')
-#             else:
- 
-#                 # if signature verification fails.
-#                 return render(request, 'web/paymentfail.html')
-#         except:
- 
-#             # if we don't find the required parameters in POST data
-#             return HttpResponseBadRequest()
-#     else:
-#        # if other than POST request is made.
-#         return HttpResponseBadRequest()
-
-
-
-def order_payment(request):
-    if request.method == "POST":
-        user_form = UserRegistration.objects.all()
-        for i in user_form:
-            name = i.name
-            shop_name = i.shop_name
-            shop_address = i.shop_address
-            email = i.email
-            phone = i.phone
-            category = i.category
-        amount = 20000
-        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
-        razorpay_order = client.order.create({"amount":amount , "currency": "INR", "payment_capture": "1"})
-        order = Order.objects.create(name=name, amount=amount, provider_order_id=razorpay_order["id"])
-        order.save()
-        return render(
-            request,
-            "web/payment.html",
-            {
-                # "callback_url": "https://" + "razorpaytask.herokuapp.com" + "/callback/",
-                "callback_url": "http://" + "127.0.0.1:8000" + "/callback/",
-                "razorpay_key": 'rzp_test_hC4pFTo1gvL3SV',
-                "order": order,
-            },
-        )
-    return render(request,"web/payment.html")
-
-
-@csrf_exempt
-def callback(request):
-    def verify_signature(response_data):
-        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
-        return client.utility.verify_payment_signature(response_data)
-
-    if "razorpay_signature" in request.POST:
-        payment_id = request.POST.get("razorpay_payment_id", "")
-        provider_order_id = request.POST.get("razorpay_order_id", "")
-        signature_id = request.POST.get("razorpay_signature", "")
-        order = Order.objects.get(provider_order_id=provider_order_id)
-        order.payment_id = payment_id
-        order.signature_id = signature_id
-        order.save()
-        if not verify_signature(request.POST):
-            order.status = PaymentStatus.FAILURE
-            order.save()
-            return render(request, "web/callback.html", context={"status": order.status})
-        else:
-            order.status = PaymentStatus.SUCCESS
-            order.save()
-            return render(request, "web/ callback.html", context={"status": order.status})
-    else:
-        payment_id = json.loads(request.POST.get("error[metadata]")).get("payment_id")
-        provider_order_id = json.loads(request.POST.get("error[metadata]")).get("order_id")
-        order = Order.objects.get(provider_order_id=provider_order_id)
-        order.payment_id = payment_id
-        order.status = PaymentStatus.FAILURE
-        order.save()
-        return render(request, "web/payment.html")
 
 
 
