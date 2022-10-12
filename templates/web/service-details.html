@@ -2,6 +2,8 @@
 {% block content %}
 {% load static %}
 
+
+<link rel="stylesheet" href="css/videopopup.css">
 <!-- partial -->
 <div class="main-panel " id="demo">
     <div class="content-wrapper" id="demo2">
@@ -9,7 +11,7 @@
             <div class="one">
                 <h2 class="text-center pb-3 service-title ">{{services.title}}</h2>
             </div>
-               
+
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 pb-5">
                 <h4 class="service-details-about-head">ABOUT THIS SERVICE</h4>
                 <p>{{services.about_service|safe}}</p>
@@ -17,8 +19,8 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <h4 class="service-details-about-head">REQUIRED DOCUMENTS</h4>
                 <p>{{services.requirements|safe}}</p>
-            </div>  
-            
+            </div>
+
         </div>
         <div class="row pt-5">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
@@ -39,27 +41,35 @@
                             <li>സെർവിസിന് വാങ്ങാവുന്ന ചാർജ് </li>
                         </div>
                         <div class="col-lg-7 col-md-6 col-sm-3 col-3 charge-pad">
-                            : <span> &#8377;  {{services.actual_service_charge}} </span>
+                            : <span> &#8377; {{services.actual_service_charge}} </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-5 col-md-6 col-sm-8 col-8">
-                            <li>സെർവിസിന് വരുന്ന സമയം   </li>
+                            <li>സെർവിസിന് വരുന്ന സമയം </li>
                         </div>
                         <div class="col-lg-7 col-md-6 col-sm-4 col-4 charge-pad">
                             : <span>{{services.time_for_service}} </span>
                         </div>
                     </div>
-                     
-                   
+
+
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
-                <a href="{{services.video_tutorial}}">
+                <!-- <a href="" class="btn-video">
                     <div class="service-detail-button text-center">
                         <span>Video Tutorial</span>
                     </div>
                 </a>
+
+                <div class="video-container" id="video-div">
+                    <span class="close">
+                        <video src="{{services.video_tutorial}}" controls></video>
+                    </span>
+                </div> -->
+                
+
                 <a href="{{services.guidline}}">
                     <div class="service-detail-button text-center">
                         <span>Guidline</span>
@@ -71,8 +81,31 @@
                     </div>
                 </a>
             </div>
-        </div>  
+        </div>
     </div>
 </div>
+
+
+<script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="js/videopopup.js"></script>
+
+<!-- <script>
+
+    const btn = document.querySelector('.btn-video');
+    const videoContainer = document.querySelector('.video-container');
+    const close = document.querySelector('.close');
+
+    btn.addEventListener('click',()=>{
+        videoContainer.classList.add('show');
+    })
+
+    close.addEventListener('click',()=>{
+        videoContainer.classList.remove('show');
+    })
+
+</script> -->
+
+
+
 
 {% endblock %}

@@ -161,3 +161,12 @@ function go(nr) {
   $('#pay-btn').fadeToggle(nr);
 }
 
+
+// ===============callback
+
+let path = document.querySelector(".tick");
+let length = path.getTotalLength();
+
+console.log(length); 
+
+
