@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from urllib import response
 from django.shortcuts import render,redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -11,12 +12,24 @@ import os
 import json
 from django.utils.decorators import method_decorator
 from django.http import JsonResponse
-
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 
 @csrf_exempt
 def login(request):
+    # login_form = LoginForm(request.POST or None)
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request, 'You have successfully logged in!', 'success')
+            return redirect('web:index')
+        else:
+            messages.info(request, 'Invalid username or password')
     context = {
-
+        
     }
     return render(request,'web/login.html',context)
 
@@ -108,7 +121,7 @@ def settings(request):
 
 
 def index(request):
-    service_head = ServiceHeads.objects.all()
+    service_head = ServiceHeads.objects.all()[:12]
     latest_news = LatestNews.objects.all().last()
     new_service_poster = NewServicePoster.objects.all()
     important_poster = ImportantPoster.objects.all()

@@ -3,7 +3,7 @@
 {% load static %}
 
 
-<link rel="stylesheet" href="css/videopopup.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 <!-- partial -->
 <div class="main-panel " id="demo">
     <div class="content-wrapper" id="demo2">
@@ -56,23 +56,20 @@
 
                 </ul>
             </div>
+
+
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
-                <!-- <a href="" class="btn-video">
+                <a href="" class="btn-video">
                     <div class="service-detail-button text-center">
-                        <span>Video Tutorial</span>
+                        <!-- <span>Video Tutorial</span> -->
+                        <a href="https://youtube.com/watch?v={{services.video_tutorial}}" class="youtube">Video Tutorial</a>
                     </div>
                 </a>
 
-                <div class="video-container" id="video-div">
-                    <span class="close">
-                        <video src="{{services.video_tutorial}}" controls></video>
-                    </span>
-                </div> -->
-                
-
                 <a href="{{services.guidline}}">
                     <div class="service-detail-button text-center">
-                        <span>Guidline</span>
+                        <!-- <span>Guidline</span> -->
+                        <a href="https://youtube.com/watch?v={{services.video_tutorial}}" class="youtube">Guidline</a>
                     </div>
                 </a>
                 <a href="{{services.upload_form.url}}" download="{{services.upload_form.url}}">
@@ -86,25 +83,35 @@
 </div>
 
 
-<script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-<script src="js/videopopup.js"></script>
 
-<!-- <script>
 
-    const btn = document.querySelector('.btn-video');
-    const videoContainer = document.querySelector('.video-container');
-    const close = document.querySelector('.close');
+{% endblock %}
 
-    btn.addEventListener('click',()=>{
-        videoContainer.classList.add('show');
-    })
+{% block js %}
 
-    close.addEventListener('click',()=>{
-        videoContainer.classList.remove('show');
-    })
 
-</script> -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
+<!-- Magnific Popup core JS file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js" integrity="sha512-C1zvdb9R55RAkl6xCLTPt+Wmcz6s+ccOvcr6G57lbm8M2fbgn2SUjUJbQ13fEyjuLViwe97uJvwa1EUf4F1Akw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<script>
+    
+    $(document).ready(function() {
+    $('.youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+
+        fixedContentPos: false
+    });
+}); 
+
+</script>
 
 
 

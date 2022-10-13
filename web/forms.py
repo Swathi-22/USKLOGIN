@@ -5,6 +5,15 @@ from django.core.exceptions import ValidationError
 import re
 
 
+# class LoginForm(forms.ModelForm):
+#     class Meta:
+#         model = UserRegistration
+#         fields = '__all__'
+#         widgets= {
+#             'name': TextInput(attrs={'class':'login__input','name':'name','id':'name','required':'required',}),
+#             'password':TextInput(attrs={'class':'login__input','type':'password','name':'password','id':'password','required':'required',})
+#         }
+
 
 
 def phone_number_validation(value):

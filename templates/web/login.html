@@ -50,31 +50,47 @@
 	<div class="screen">
     
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" id="form" method="post">
+        {% csrf_token %}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
           <input type="text" name="username" id="username" class="login__input" >
+          <!-- {{login_form.username}} -->
 				</div>
 				<div class="login__field">
           <i class="bi bi-eye-slash login__icon" id="togglePassword"></i>
           <input type="password" name="password" id="password" class="login__input"/>
+          <!-- {{login_form.password}} -->
 				</div>
         <div class="forgot-psd">
           <a href="">Forgot Password ?</a>
         </div>
-        <a href=""></a>
-        <button class="button login__submit">
-					<span class="button__text">LOGIN</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>	
+        
+        <a href="">
+          <button class="button login__submit">
+            <span class="button__text">LOGIN</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>	
+        </a>
+        
+        
 				<a href="">
           <div class="learnmore">
-            <button class="button login__submit">
+            <button class="button login__submit__learnmore">
               <span class="button__text">learn more</span>
               <i class="button__icon fas fa-chevron-right"></i>
             </button>	
           </div>
         </a>
+        <div class="signup">
+          <h4 class="signup-head">Don't have an account yet?</h4>
+          <a href="">
+            <button class="button login__submit">
+              <span class="button__text">SIGNUP</span>
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>	
+          </a>
+        </div>
         
         
 			</form>

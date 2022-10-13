@@ -24,6 +24,7 @@ def serviceHead(request):
 
 def serviceDetails(request,slug):
     services = get_object_or_404(Services,slug=slug)
+    print(services.video_tutorial)
     context = {
         'services':services,
     }

@@ -28,6 +28,7 @@ class UserRegistration(BaseModel):
     shop_address = models.TextField()
     email =  models.EmailField()
     phone = models.CharField(max_length=200)
+    USERNAME_FIELD = 'phone'
     category = models.CharField(max_length=200,choices=CATEGORY_CHOICES)
 
     class Meta:

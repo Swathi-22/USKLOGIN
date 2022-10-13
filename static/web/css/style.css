@@ -13610,6 +13610,11 @@ dl {
     padding: 14px 10px;
     width: 50%;
 }
+.service-main-head-index {
+  border-radius: 10px;
+  padding: 14px 10px;
+  width: 91%;
+}
 
   .serviec-main-head-a{
     color: #fff;
@@ -15564,7 +15569,7 @@ body {
 .screen {		
 	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
 	position: relative;	
-	height: 485px;
+	height: 530px;
 	width: 400px;	
 	box-shadow: 0px 0px 24px #5C5696;
 }
@@ -15630,7 +15635,7 @@ body {
 .login {
 	width: 320px;
 	padding: 30px;
-	padding-top: 80px;
+	padding-top: 35px;
 }
 
 .login__field {
@@ -15667,6 +15672,23 @@ body {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+.login__submit__learnmore{
+  background: #fff;
+	font-size: 14px;
+	margin-top: 15px;
 	padding: 16px 20px;
 	border-radius: 26px;
 	border: 1px solid #D4D3E8;
@@ -15732,6 +15754,12 @@ body {
     font-size: 13px;
 
 }
+.signup{
+  margin-top: 15px;
+}
+.signup-head{
+  font-weight: 900;
+}
 @media only screen and (min-width:577px) and (max-width:768px){
   .main-logo{
     width: 53% !important;
@@ -15742,3 +15770,15 @@ body {
   width: 73%;
 }
 }
+
+
+/*toutube video popup  */
+
+
+.youtube{
+  color: #e55e3a;
+}
+.youtube:hover{
+  color: #e55e3a;
+}
+

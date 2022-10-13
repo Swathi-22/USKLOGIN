@@ -29,8 +29,8 @@ class Services(models.Model):
     service_charge = models.IntegerField()
     actual_service_charge = models.IntegerField()
     time_for_service = models.CharField(max_length=100)
-    video_tutorial = models.URLField()
-    guidline = models.URLField()
+    video_tutorial = models.CharField(max_length=100)
+    guidline = models.CharField(max_length=100)
     upload_form = models.FileField()
     slug=models.SlugField(unique=True)
 
