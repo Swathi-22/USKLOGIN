@@ -14,6 +14,8 @@ from django.utils.decorators import method_decorator
 from django.http import JsonResponse
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 @csrf_exempt
 def login(request):
@@ -21,7 +23,7 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request,username=username,password=password)
+        user = authenticate(request,phone=username,password=password)
         if user is not None:
             login(request,user)
             messages.success(request, 'You have successfully logged in!', 'success')
@@ -131,8 +133,23 @@ def index(request):
         'latest_news':latest_news,
         'new_service_poster':new_service_poster,
         'important_poster':important_poster,
+        'room_name':"broadcast"
     }
     return render(request,'web/index.html',context)
+
+
+
+def notification(request):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        "notification_broadcast",
+        {
+            'type':'send_notification',
+            'message':"Notification"
+        }
+    )
+    return HttpResponse("Done")
+
 
 
 def generatePoster(request):

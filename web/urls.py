@@ -13,6 +13,7 @@ urlpatterns =[
     path('profile/',views.profile,name='profile'),
     path('settings/',views.settings,name='settings'),
     path('dashboard/',views.index,name='index'),
+    path('notification/',views.notification,name='notification'),
     path('generate-poster/',views.generatePoster,name='generatePoster'),
     path('generate-bill/',views.generateBill,name='generateBill'),
     path('search/',views.searchResult),
