@@ -13869,6 +13869,72 @@ transition: all ease 0.8s;
   font-size: 13px;
 }
 @media only screen and (max-width:576px){
+  .buttons {
+    width: 100% !important;
+    border: 1px solid #fff;
+    padding: 13px 0px;
+}
+.access-software {
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 16px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-tool {
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 17px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-tip {
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 17px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-idea {
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 17px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-portal {
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 17px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-bonus {
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 17px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-bonus,.name-backservice,.name-portal,.name-idea,.name-tip,.name-tool,.name-software {
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 0px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
   .service-main-head {
     border-radius: 10px;
     padding: 14px 10px;
@@ -14376,6 +14442,76 @@ transition: all ease 0.8s;
 }
 
 @media only screen and (min-width:577px) and (max-width:768px){
+  .access-software {
+    background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+    box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 13px !important;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.access-tool {
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-tip {
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-idea {
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-portal {
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-backservice {
+  background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
+  box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-bonus {
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 13px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-bonus,.name-backservice,.name-portal,.name-idea,.name-tip,.name-tool,.name-software {
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 0px !important;
+  border-radius: 5px;
+  font-size: 13px;
+}
   .access {
     background: linear-gradient(to right, #ffbf96, #fe7096) !important;
     color: #fff;
@@ -15546,7 +15682,7 @@ display:none
 
 /* =============login */
 
-/* @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
       * {
 	box-sizing: border-box;
 	margin: 0;
@@ -15769,7 +15905,7 @@ body {
   .main-logo{
   width: 73%;
 }
-} */
+}
 
 
 /*toutube video popup  */
@@ -15781,4 +15917,358 @@ body {
 .youtube:hover{
   color: #e55e3a;
 }
+
+
+
+.access-software{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-software:hover{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-software { 
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 24px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-software:hover{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 24px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.access-tool{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-tool:hover{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-tool{
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-tool:hover{
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.access-tip{
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-tip:hover{
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-tip {
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-tip:hover{
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.access-idea{
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-idea:hover{
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-idea {
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-idea:hover{
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.access-portal{
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-portal:hover{
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-portal {
+  
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-portal:hover{
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.access-backservice{
+  background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
+  box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-backservice:hover{
+  background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
+  box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-backservice {
+  
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-backservice:hover{
+  background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
+  box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+
+.access-bonus{
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.access-bonus:hover{
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 23px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-bonus {
+  
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;  
+  border-radius: 5px;
+  font-size: 13px;
+}
+.name-bonus:hover{
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 29px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.buttons{
+  width: 75%;
+  border: 1px solid #fff;
+  padding: 13px 0px;
+}
+.left-col {
+  width: 50%;
+  min-height: 0px;
+  border-right: 1px solid black;
+  float: left;
+  box-sizing: border-box;
+  margin-top: -12px;
+  overflow: hidden;
+}
+
+.right-col-software {
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+}
+
+.right-col-tool{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
+  box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
+}
+
+.right-col-tip{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
+  box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
+}
+.right-col-idea{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
+  box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
+}
+
+.right-col-portal{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
+  box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
+}
+
+.right-col-backservice{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
+  box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
+}
+.right-col-bonus{
+  width: 50%;
+  min-height: 0px;
+  float: right;
+  margin-top: -12px;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
+  box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
