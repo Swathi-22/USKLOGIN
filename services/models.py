@@ -1,9 +1,10 @@
 from django.db import models
 from versatileimagefield.fields import VersatileImageField,PPOIField
 from tinymce.models import HTMLField
-# Create your models here.
 
 
+
+# Service category
 class ServiceHeads(models.Model):
     title = models.CharField(max_length = 225)
     slug=models.SlugField(unique=True)
@@ -13,11 +14,10 @@ class ServiceHeads(models.Model):
     
     def __str__(self):
         return str(self.title)
+        
+        
 
-    def get_services(self):
-        return Services.objects.filter(service_head=self)
-
-
+# Services in service category
 class Services(models.Model):
     service_head = models.ForeignKey(ServiceHeads,on_delete=models.CASCADE)   
     title = models.CharField(max_length = 225)

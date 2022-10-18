@@ -7,7 +7,7 @@ app_name='web'
 
 urlpatterns =[
 
-    path('',views.login,name='login'),
+    path('',views.login_view,name='login_view'),
     path('register/',views.register,name='register'),
     path('forgot-password/',views.forgot_password,name='forgot_password'),
     path('profile/',views.profile,name='profile'),
@@ -35,6 +35,7 @@ urlpatterns =[
     path('terms-and-conditions/',views.termsConditions,name='termsConditions'),
     path('payment/', views.order_payment,name="payment"),
     path("callback/", views.callback, name="callback"),
+    path("logout/", views.logout, name="logout"),
     
     
 

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'web',
     'services',
     'channels',
+    
 ]
 
 MIDDLEWARE = [

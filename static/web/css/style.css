@@ -13599,7 +13599,7 @@ dl {
   
   .content-div{
     margin-left: 47px;
-    padding: 32px 55px;
+    padding: 107px 55px;
   }
 
   a:hover{
@@ -14197,7 +14197,7 @@ transition: all ease 0.8s;
   .view-more{
     background: linear-gradient(to right, #ffbf96, #fe7096) !important;
     color: #fff;
-    padding: 3px 13px !important;
+    padding: 3px 15px !important;
     border-radius: 5px;
   }
   .serviceBox {
@@ -14522,7 +14522,7 @@ transition: all ease 0.8s;
 .view-more {
   background: linear-gradient(to right, #ffbf96, #fe7096) !important;
   color: #fff;
-  padding: 3px 13px !important;
+  padding: 3px 15px !important;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -15679,246 +15679,13 @@ display:none
   transform: scale(1);
 }
 
-
-/* =============login */
-
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-      * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;	
-	font-family: Raleway, sans-serif;
-}
-
-body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);
-  overflow-y: hidden;		
-}
-
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 75vh;
-}
-
-.screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
-	position: relative;	
-	height: 530px;
-	width: 400px;	
-	box-shadow: 0px 0px 24px #5C5696;
-}
-
-.screen__content {
-	z-index: 1;
-	position: relative;	
-	height: 100%;
-}
-
-.screen__background {		
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 0;
-	-webkit-clip-path: inset(0 0 0 0);
-	clip-path: inset(0 0 0 0);	
-}
-
-.screen__background__shape {
-	transform: rotate(45deg);
-	position: absolute;
-}
-
-.screen__background__shape1 {
-	height: 520px;
-	width: 520px;
-	background: #FFF;	
-	top: -50px;
-	right: 120px;	
-	border-radius: 0 72px 0 0;
-}
-
-.screen__background__shape2 {
-	height: 220px;
-	width: 220px;
-	background: #6C63AC;	
-	top: -172px;
-	right: 0;	
-	border-radius: 32px;
-}
-
-.screen__background__shape3 {
-	height: 540px;
-	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
-	top: -24px;
-	right: 0;	
-	border-radius: 32px;
-}
-
-.screen__background__shape4 {
-	height: 400px;
-	width: 200px;
-	background: #7E7BB9;	
-	top: 420px;
-	right: 50px;	
-	border-radius: 60px;
-}
-
-.login {
-	width: 320px;
-	padding: 30px;
-	padding-top: 35px;
-}
-
-.login__field {
-	padding: 20px 0px;	
-	position: relative;	
-}
-
-.login__icon {
-	position: absolute;
-  top: 34px;
-  left: 20px;
-	color: #7875B5;
-}
-
-.login__input {
-  border: 2px solid #D1D1D4;
-  border-radius: 10px;
-	background: none;
-	padding: 10px;
-	padding-left: 30px;
-	font-weight: 700;
-	width: 91%;
-	transition: .2s;
-}
-
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
-	outline: none;
-	border-bottom-color: #6A679E;
-}
-
-.login__submit {
-	background: #fff;
-	font-size: 14px;
-	margin-top: 30px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
-	cursor: pointer;
-	transition: .2s;
-}
-.login__submit__learnmore{
-  background: #fff;
-	font-size: 14px;
-	margin-top: 15px;
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
-	cursor: pointer;
-	transition: .2s;
-}
-
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-	border-color: #6A679E;
-	outline: none;
-}
-
-.button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
-}
-
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
-}
-
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
-}
-
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}
-.main-logo{
-  width: 25%;
-}
-.learnmore{
-  margin-left: 119px;
-    margin-right: -101px;
-}
-.forgot-psd{
-  text-align: right;
-    font-size: 13px;
-
-}
-.signup{
-  margin-top: 15px;
-}
-.signup-head{
-  font-weight: 900;
-}
-@media only screen and (min-width:577px) and (max-width:768px){
-  .main-logo{
-    width: 53% !important;
-  }
-}
-@media screen and (max-width:576px) {
-  .main-logo{
-  width: 73%;
-}
-}
-
-
 /*toutube video popup  */
-
-
 .youtube{
   color: #e55e3a;
 }
 .youtube:hover{
   color: #e55e3a;
 }
-
-
 
 .access-software{
   background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
@@ -16252,23 +16019,7 @@ body {
   box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.logo-login{
+  width: 65%;
+  text-align: center;
+} 

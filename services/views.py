@@ -4,7 +4,7 @@ from services.models import ServiceHeads,Services
 
 
 def serviceHead(request):
-    service_head = ServiceHeads.objects.all()   
+    service_head=ServiceHeads.objects.all()
     services = Services.objects.all()
     context = {
         "is_service":True,
