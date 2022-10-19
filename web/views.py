@@ -14,24 +14,25 @@ from django.utils.decorators import method_decorator
 from django.http import JsonResponse
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
-@csrf_exempt
-def login(request):
+
+def login_view(request):
+
     # login_form = LoginForm(request.POST or None)
     if request.method == 'POST':
-        username = request.POST.get('username')
+        phone = request.POST.get('phone')
         password = request.POST.get('password')
-        user = authenticate(request,username=username,password=password)
+        user = UserRegistration.objects.filter(phone=phone,password=password)
         if user is not None:
-            login(request,user)
+            request.session['phone'] = phone
             messages.success(request, 'You have successfully logged in!', 'success')
             return redirect('web:index')
         else:
             messages.info(request, 'Invalid username or password')
-    context = {
-        
-    }
-    return render(request,'web/login.html',context)
+            return redirect('web:login_view')
+    return render(request,'web/login.html')
 
 
 @csrf_exempt
@@ -125,14 +126,32 @@ def index(request):
     latest_news = LatestNews.objects.all().last()
     new_service_poster = NewServicePoster.objects.all()
     important_poster = ImportantPoster.objects.all()
+    user=request.session['phone']
+    logined_user=UserRegistration.objects.get(phone=user)
     context = {
         "is_index":True,
         'service_head':service_head,
         'latest_news':latest_news,
         'new_service_poster':new_service_poster,
         'important_poster':important_poster,
+        'room_name':"broadcast",
+        'logined_user':logined_user
     }
     return render(request,'web/index.html',context)
+
+
+
+def notification(request):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        "notification_broadcast",
+        {
+            'type':'send_notification',
+            'message':"Notification"
+        }
+    )
+    return HttpResponse("Done")
+
 
 
 def generatePoster(request):
@@ -371,7 +390,13 @@ def paymentfail(request):
     return render(request,'web/paymentfail.html',context)
 
 
-
+def logout(request):
+    try:
+        del request.session['phone']
+    except:
+        return redirect('web:login_view')
+    return redirect('web:login_view')
+    
 
 
 

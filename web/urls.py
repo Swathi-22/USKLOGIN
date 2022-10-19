@@ -7,12 +7,13 @@ app_name='web'
 
 urlpatterns =[
 
-    path('',views.login,name='login'),
+    path('',views.login_view,name='login_view'),
     path('register/',views.register,name='register'),
     path('forgot-password/',views.forgot_password,name='forgot_password'),
     path('profile/',views.profile,name='profile'),
     path('settings/',views.settings,name='settings'),
     path('dashboard/',views.index,name='index'),
+    path('notification/',views.notification,name='notification'),
     path('generate-poster/',views.generatePoster,name='generatePoster'),
     path('generate-bill/',views.generateBill,name='generateBill'),
     path('search/',views.searchResult),
@@ -34,6 +35,7 @@ urlpatterns =[
     path('terms-and-conditions/',views.termsConditions,name='termsConditions'),
     path('payment/', views.order_payment,name="payment"),
     path("callback/", views.callback, name="callback"),
+    path("logout/", views.logout, name="logout"),
     
     
 

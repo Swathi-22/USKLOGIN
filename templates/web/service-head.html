@@ -26,7 +26,8 @@
             <a href="" class="serviec-main-head-a">{{service_heads.title}}</a>
           </div>
           <div class="row pt-3">  
-            {% for service in services %}
+            {% for service in services %} 
+            {% if service.service_head == service_heads %}
             <div class="col-lg-3 col-md-3 col-sm-6 col-6 pb-3">
               <div class="serviceBox">
                   <img src="{{service.image.crop.179x179}}" class="sub-service-img pb-2" alt="">
@@ -37,6 +38,7 @@
                 </div>
               </div>
             </div>
+            {% endif %}
            {% endfor %}
           </div>
         </div>

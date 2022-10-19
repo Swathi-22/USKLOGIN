@@ -1,4 +1,4 @@
-
+from decouple import config,Csv
 from pathlib import Path
 
 
@@ -6,8 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = 'django-insecure-1@n)6_q8obxf6-)4__4%466=@d&b6t@5mk5gwj^v@@e#y*e6!$'
+SECRET_KEY = config('SECRET_KEY')
 
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 DEBUG = True
 
@@ -30,6 +31,8 @@ INSTALLED_APPS = [
 
     'web',
     'services',
+    'channels',
+    
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'usklogin.wsgi.application'
+ASGI_APPLICATION = 'usklogin.asgi.application'
 
 
 # DATABASES = {
@@ -159,3 +163,13 @@ STATIC_ROOT = BASE_DIR / 'assets'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}

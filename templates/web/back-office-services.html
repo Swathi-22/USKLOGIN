@@ -9,16 +9,29 @@
             <div class="row">
             {% for services in back_office_services %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6 pb-3">
-                    <a href="{{services.link}}">
+                    <a href="">
                         <div class="card-office">
                             <div class="card-body-office">
                                 <img src="{{services.image.crop.194x194}}" alt="">
                             </div>
                         </div>
                     </a>
-                    <a href="{{services.link}}">
+                    <div class='buttons'>
+                        <div class='left-col'>
+                            <a href="{{services.link}}" class="access-backservice" rel="noopener noreferrer"
+                                target="_blank">ACCESS</a>
+                        </div>
+                        <div class='right-col-backservice'>
+                            <a href="" class="name-backservice" rel="noopener noreferrer" target="_blank">{{services.name}}</a>
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <a href="{{services.link}}" class="access-backservice" rel="noopener noreferrer" target="_blank">ACCESS</a>
+                        <a href="" class="name-backservice" rel="noopener noreferrer" target="_blank">{{services.name}}</a>
+                      </div> -->
+                    <!-- <a href="{{services.link}}">
                         <button class="btn-hover-office color-6">{{services.name}}</button>
-                    </a>
+                    </a> -->
                 </div>
              {% endfor %}
             </div>
