@@ -1,3 +1,4 @@
+from attr import fields
 from django import forms
 from django.forms.widgets import SelectMultiple, TextInput, Textarea, EmailInput, CheckboxInput,URLInput, Select, NumberInput, RadioSelect, FileInput,ClearableFileInput, PasswordInput
 from .models import *
@@ -63,3 +64,10 @@ class SupportTicketForm(forms.ModelForm):
             'message':Textarea(attrs={'class':"form-control",'name':"message",'id':'message','rows':"6",'autocomplete':'off',}),
             
         }
+
+
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserRegistration
+        fields = ['name','shop_name','shop_address','email','phone','profile_image','category']

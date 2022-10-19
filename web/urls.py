@@ -11,6 +11,7 @@ urlpatterns =[
     path('register/',views.register,name='register'),
     path('forgot-password/',views.forgot_password,name='forgot_password'),
     path('profile/',views.profile,name='profile'),
+    path('profile-update/',views.profile_update,name='profile_update'),
     path('settings/',views.settings,name='settings'),
     path('dashboard/',views.index,name='index'),
     path('notification/',views.notification,name='notification'),

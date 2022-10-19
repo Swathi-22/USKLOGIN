@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+
+
+<div class="main-panel " id="demo">
+    <div class="content-wrapper" id="demo2">
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

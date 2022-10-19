@@ -1,3 +1,4 @@
+from multiprocessing import context
 from pyexpat.errors import messages
 from urllib import response
 from django.shortcuts import render,redirect
@@ -16,6 +17,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
+
 
 
 def login_view(request):
@@ -108,10 +110,25 @@ def forgot_password(request):
 
 
 def profile(request):
+    user=request.session['phone']
+    logined_user=UserRegistration.objects.get(phone=user)
     context = {
         "is_profile":True,
+        'logined_user':logined_user
     }
     return render(request,'web/profile.html',context)
+
+
+
+def profile_update(request):
+    # if request.method == 'POST':
+    #     user_form = UserUpdateForm(request.POST,request.FILES,instance=request.session['phone'])
+    # else:
+    #     user_form = UserUpdateForm(instance=request.session['phone'])
+    context = {
+        # 'user_form':user_form
+    }
+    return render(request,'web/profile-update.html',context)
 
 
 def settings(request):
