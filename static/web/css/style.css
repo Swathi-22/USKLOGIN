@@ -13869,6 +13869,25 @@ transition: all ease 0.8s;
   font-size: 13px;
 }
 @media only screen and (max-width:576px){
+  .section-margin{
+    margin-top: -31px !important;
+  }
+  .profile-branding-card {
+    border: 2px dashed #fff;
+    border-radius: 4px;
+    width: 100%;
+    height: 208px;
+    margin: auto !important;
+}
+
+
+  .profile-side {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin: 5px 0;
+    overflow: auto !important;
+}
   .profile-pic img {
     position: absolute;
     object-fit: cover;
@@ -14490,6 +14509,36 @@ button.chatbtn, button.createbtn {
 }
 
 @media only screen and (min-width:577px) and (max-width:768px){
+  .logo-login {
+    width: 25%;
+    margin: 0px 294px !important;
+}
+.section-margin {
+  margin-top: -34px !important;
+}
+  .profile-branding-card {
+    border: 2px dashed #fff;
+    border-radius: 4px;
+    width: 100%;
+    height: 208px;
+    margin: auto !important;
+}
+  button.chatbtn, button.createbtn {
+    border: 0;
+    padding: 8px;
+    width: 31% !important;
+    border-radius: 3px;
+    background: #e40046;
+    color: #fff;
+    font-family: "Bree Serif";
+    font-size: 1rem;
+    margin: 5px 2px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgb(0 0 0 / 30%);
+}
   .profile-pic img {
     position: absolute;
     object-fit: cover;
@@ -14737,6 +14786,15 @@ button.chatbtn, button.createbtn {
 }
 
 }
+
+
+@media only screen and (min-width:768px) and (max-width:1024){
+  .logo-login {
+    width: 25%;
+    margin: 0px 384px;
+}
+}
+
 @media only screen and (min-width:768px){
   
   .img-popup {
@@ -16206,10 +16264,10 @@ display:none
 }
 
 .profile-side {
-  width: 300px;
+  width: 100%;
   background: #fff;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-  padding: 90px 30px 20px;
+  box-shadow: 0px 3px 5px rgb(0 0 0 / 20%);
+  padding: 54px 13px;
   font-family: "Bree Serif", serif;
   z-index: 99;
 }
@@ -16218,6 +16276,7 @@ display:none
   margin-bottom: 7px;
   color: #333;
   font-size: 14px;
+  text-align: left;
 }
 
 .profile-side p i {
@@ -16526,4 +16585,36 @@ button.createbtn i {
   display: inline-flex;
   padding: 0.2em;
   height: 2em;
+}
+
+.profile-branding-card {
+  border: 2px dashed #fff;
+  border-radius: 4px;
+  width: 100%;
+  height: 208px;
+  margin: 15px 126px;
+}
+
+.success-message{
+  background: -webkit-linear-gradient(#0d9b11,#000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  font-size:21px
+}
+.login-message{
+  color: #af0808;
+}
+.learnmore-button{
+  width: 100%;
+  padding: 7px 10px;
+  background-color: #0b2c2e;
+  border: 2px solid #0b2c2e;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  margin-top: 14px;
+}
+.section-margin{
+  margin-top: -55px;
 }

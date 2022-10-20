@@ -70,4 +70,14 @@ class SupportTicketForm(forms.ModelForm):
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = UserRegistration
-        fields = ['name','shop_name','shop_address','email','phone','profile_image','category']
+        fields = '__all__'
+        widgets= {
+            'name': TextInput(attrs={'class':'form-control','name':'name',}),
+            'shop_name': TextInput(attrs={'class':'form-control','name':'shop_name',}),
+            'shop_address': Textarea(attrs={'class':'form-control','name':'shop_address',}),
+            'email': EmailInput(attrs={'class':'form-control','name':'email',}),
+            'phone': TextInput(attrs={'class':'form-control','name':'phone',}),
+            'category':Select(attrs={'class':'form-control','name':'category',}),
+            
+            
+        }

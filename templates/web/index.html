@@ -8,14 +8,14 @@
 
 
     {% if messages %}
-<ul class="messages">
+<div class="messages text-center success-message" id="sucessful-login-message">
     {% for message in messages %}
-    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
         {{ message }}
-    </li>
+    </div>
     {% endfor %}
-</ul>
+  </div>
 {% endif %}
     <!-- service head display -->
     <section>
@@ -97,6 +97,16 @@
 
 </div>
 <!-- main-panel ends -->
+
+
+<!-- ===============successful login message  -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#sucessful-login-message').fadeOut(3000)
+  })
+</script>
 
 {% endblock %}
 

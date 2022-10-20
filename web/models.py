@@ -32,6 +32,7 @@ class UserRegistration(BaseModel):
         upload_to="Profile", null=True, default="deafult-01.jpg"
     )
     category = models.CharField(max_length=200,choices=CATEGORY_CHOICES)
+    is_user = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = ("Resgistered Users")

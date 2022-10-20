@@ -13,14 +13,7 @@
                     Certificate</button>
             </div>
             <div class="profile-header">
-                <div class="profile-pic">
-                    <label class="-label" for="file">
-                      <span class="glyphicon glyphicon-camera"></span>
-                      <span>Change Image</span>
-                    </label>
-                    <input id="file" type="file" onchange="loadFile(event)"/>
-                    <img src="{{logined_user.profile_image.url}}" id="output" width="200" />
-                  </div>
+               
 
 
 
@@ -46,16 +39,20 @@
                         <p class="mobile-no"><i class="fa fa-phone"></i> {{logined_user.phone}}</p>
                         <p class="user-mail"><i class="fa fa-envelope"></i> {{logined_user.email}}</p>
                         <p class="user-mail"><i class="fa-solid fa-shop"></i>{{logined_user.shop_name}}</p>
-                        <div class="user-bio">
-                            <p><i class="fa-solid fa-location-dot"></i>{{logined_user.shop_address}}</p>
-                        </div>
-
-
+                       
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="user-address"><i class="fa-solid fa-location-dot"></i>{{logined_user.shop_address}}</p>
+                                </div>
+                            </div>
+                            
                     </div>
 
                 </div>
                 <div class="right-side">
+                    <div class="profile-branding-card">
 
+                    </div>
 
                 </div>
             </div>

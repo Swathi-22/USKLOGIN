@@ -27,10 +27,17 @@ def login_view(request):
         phone = request.POST.get('phone')
         password = request.POST.get('password')
         user = UserRegistration.objects.filter(phone=phone,password=password)
-        if user is not None:
+        obj = UserRegistration.objects.get(phone=phone,password=password)
+        order = Order.objects.get(name=obj)
+        # is_user = UserRegistration.objects.filter(is_user=True)
+        # print(is_user)
+        if user is not None and order.status == PaymentStatus.SUCCESS:
+            # if user is not None and is_user:
             request.session['phone'] = phone
             messages.success(request, 'You have successfully logged in!', 'success')
             return redirect('web:index')
+        elif order.status == PaymentStatus.FAILURE or order.status == PaymentStatus.PENDING:
+            messages.info(request, 'Please complete your payment')
         else:
             messages.info(request, 'Invalid username or password')
             return redirect('web:login_view')
@@ -121,12 +128,19 @@ def profile(request):
 
 
 def profile_update(request):
-    # if request.method == 'POST':
-    #     user_form = UserUpdateForm(request.POST,request.FILES,instance=request.session['phone'])
-    # else:
-    #     user_form = UserUpdateForm(instance=request.session['phone'])
+    user=request.session['phone']
+    logined_user=UserRegistration.objects.get(phone=user)
+    
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST,request.FILES,instance=logined_user)
+        
+        if user_form.is_valid():
+            user_form.save()
+            return redirect('web:profile')
+    else:
+        user_form = UserUpdateForm(instance=logined_user)
     context = {
-        # 'user_form':user_form
+        'user_form':user_form
     }
     return render(request,'web/profile-update.html',context)
 
