@@ -31,9 +31,11 @@ INSTALLED_APPS = [
 
     'web',
     'services',
+    'notification',
     'channels',
-    "crispy_forms",
-    "crispy_bootstrap5",
+    'django_celery_beat',
+    'django_celery_results',
+    
     
 ]
 
@@ -68,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'web.context_proccessor.notifications'
             ],
         },
     },
@@ -183,3 +187,15 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+# CELERY SETTINGS
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SELERLIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'

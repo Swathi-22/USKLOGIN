@@ -1,5 +1,6 @@
 from attr import fields
 from django import forms
+from django.forms import FileField
 from django.forms.widgets import SelectMultiple, TextInput, Textarea, EmailInput, CheckboxInput,URLInput, Select, NumberInput, RadioSelect, FileInput,ClearableFileInput, PasswordInput
 from .models import *
 from django.core.exceptions import ValidationError
@@ -68,6 +69,8 @@ class SupportTicketForm(forms.ModelForm):
 
 
 class UserUpdateForm(forms.ModelForm):
+    
+
     class Meta:
         model = UserRegistration
         fields = '__all__'
@@ -78,6 +81,5 @@ class UserUpdateForm(forms.ModelForm):
             'email': EmailInput(attrs={'class':'form-control','name':'email',}),
             'phone': TextInput(attrs={'class':'form-control','name':'phone',}),
             'category':Select(attrs={'class':'form-control','name':'category',}),
-            
-            
+            'profile_image' :FileInput(attrs={'class':'form-control','name':'image',})
         }

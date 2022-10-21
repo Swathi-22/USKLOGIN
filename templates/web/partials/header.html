@@ -84,55 +84,33 @@
             <h6 class="p-3 mb-0 text-center">4 new messages</h6>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-            <i class="mdi mdi-bell-outline"></i>
-            <span class="count-symbol bg-danger" id="notification-badge"></span>
+
+
+
+
+
+        <li class="nav-item dropdown notification-section">
+          <a href="#" class="notification dropdown-toggle" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="true">
+              <span><i class='fa fa-bell'></i></span>
+              <span class="badge" id="notification-badge">0</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-            <h6 class="p-3 mb-0">Notifications</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-success">
-                  <i class="mdi mdi-calendar"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center" id="notification-dropdown">
-                <!-- <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p> -->
-              </div>
-            </a>
-            {% comment %}
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-warning">
-                  <i class="mdi mdi-settings"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item preview-item">
-              <div class="preview-thumbnail">
-                <div class="preview-icon bg-info">
-                  <i class="mdi mdi-link-variant"></i>
-                </div>
-              </div>
-              <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-              </div>
-            </a>
-            {% endcomment %}
-            <div class="dropdown-divider"></div>
-            <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-          </div>
-        </li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="notifications-dropdown"
+              data-popper-placement="bottom-end"
+              style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(-70px, 42px, 0px);">
+              
+              {% for i in notifications %}
+              <li class="dropdown-item">{{i.message}}</li>
+              <hr class="dropdown-divider">
+              {% endfor %}
+              {% comment %} <li class='dropdown-item'>Hello</li>
+              <hr class="dropdown-divider"> {% endcomment %}
+              
+          </ul>
+      </li>
+
+
+
         <li class="nav-item nav-logout d-none d-lg-block">
           <a class="nav-link" href="{% url 'web:logout' %}">
             <i class="mdi mdi-power"></i>
@@ -151,7 +129,7 @@
   </nav>
 
 
-  {{ room_name|json_script:"room-name" }}
+ {{ room_name|json_script:"room-name" }}
     <script>
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
@@ -165,17 +143,17 @@
 
         notificationSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            // document.querySelector('#chat-log').value += (data.message + '\n');
+            //document.querySelector('#chat-log').value += (data.message + '\n');
             console.log(data);
-            document.getElementById("notification-dropdown").innerHTML="<p class='text-gray ellipsis mb-0'>" + data +"</p>"+document.getElementById("notification-dropdown").innerHTML;
-            document.getElementById("notification-badge").innerHTML=parseInt(document.getElementById("notification-badge").innerHTML)+1;
+            document.getElementById("notifications-dropdown").innerHTML = "<li class='dropdown-item'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+            document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML)+1;
         };
 
         notificationSocket.onclose = function(e) {
             console.error('Chat socket closed unexpectedly');
         };
 
-        
+      
 
-        
+       
     </script>

@@ -13,9 +13,9 @@
                     Certificate</button>
             </div>
             <div class="profile-header">
-               
-
-
+                
+                    <img src="{{logined_user.profile_image.url}}"  class="profile-picture"/>
+             
 
                 <div class="profile-nav-info">
                     <h3 class="user-name">{{logined_user.name}}</h3> 
@@ -62,13 +62,14 @@
 
 
 
-<script>
+<!-- <script>
     var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
 
-</script>
+</script> -->
+
 
 
 {% endblock %}

@@ -119,9 +119,11 @@ def forgot_password(request):
 def profile(request):
     user=request.session['phone']
     logined_user=UserRegistration.objects.get(phone=user)
+    user_form = UserUpdateForm(request.POST,request.FILES,instance=logined_user)
     context = {
         "is_profile":True,
-        'logined_user':logined_user
+        'logined_user':logined_user,
+        'user_form':user_form
     }
     return render(request,'web/profile.html',context)
 
@@ -130,11 +132,14 @@ def profile(request):
 def profile_update(request):
     user=request.session['phone']
     logined_user=UserRegistration.objects.get(phone=user)
-    
     if request.method == 'POST':
+        old_image = UserRegistration.objects.get(phone=user)
         user_form = UserUpdateForm(request.POST,request.FILES,instance=logined_user)
-        
+        print(user_form.errors)
         if user_form.is_valid():
+            image_path = old_image.profile_image.path
+            if os.path.exists(image_path):
+                os.remove(image_path)
             user_form.save()
             return redirect('web:profile')
     else:

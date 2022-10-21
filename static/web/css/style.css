@@ -16275,7 +16275,7 @@ display:none
 .profile-side p {
   margin-bottom: 7px;
   color: #333;
-  font-size: 14px;
+  font-size: 17px !important;
   text-align: left;
 }
 
@@ -16617,4 +16617,57 @@ button.createbtn i {
 }
 .section-margin{
   margin-top: -55px;
+}
+.profile-picture{
+  border-radius: 50%;
+  margin: 10px 10px;
+}
+
+/* =====================notification */
+
+.notification {
+  background-color: #0d6efd;
+  color: white;
+  text-decoration: none;
+  padding: 4px 24px;
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 20px;
+}
+
+.notification:hover {
+  background: #0b5ed7;
+  color: #fff;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 8px 8px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+.notification-section .dropdown-toggle::after {
+  content: none;
+}
+
+.dropdown-toggle::after {
+  color: #fff;
+}
+
+#notifications-dropdown li {
+  max-width: 500px;
+  word-wrap: break-word;
+  display: inline-block;
+  white-space: normal;
+}
+
+#notifications-dropdown.dropdown-menu {
+  width: 15rem;
 }
