@@ -34,6 +34,7 @@ def login_view(request):
         if user is not None and order.status == PaymentStatus.SUCCESS:
             # if user is not None and is_user:
             request.session['phone'] = phone
+            request.session['password'] = password
             messages.success(request, 'You have successfully logged in!', 'success')
             return redirect('web:index')
         elif order.status == PaymentStatus.FAILURE or order.status == PaymentStatus.PENDING:
