@@ -12417,7 +12417,7 @@ code {
       background: initial; }
     .dropdown .dropdown-menu .dropdown-item:hover {
       background-color: #f8f9fa;
-      color: #ffffff; }
+      color: #612c2c; }
 
 /* Forms */
 .form-group {
@@ -13055,9 +13055,10 @@ dl {
         width: 32px;
         height: 32px; }
         .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img img {
-          width: 32px;
-          height: 32px;
-          border-radius: 100%; }
+          width: 45px;
+          height: 45px;
+          border-radius: 100%;
+          margin-top: -10px; }
         .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img .availability-status {
           position: absolute;
           width: 10px;
@@ -13067,7 +13068,9 @@ dl {
           bottom: 5px;
           right: -5px; }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img .availability-status.online {
-            background: #1bcfb4; }
+            background: #1bcfb4;
+            top: 22px;
+            left: 36px; }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img .availability-status.offline {
             background: #fe7c96; }
           .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile .nav-link .nav-profile-img .availability-status.busy {
@@ -16299,7 +16302,7 @@ button.chatbtn,
 button.createbtn {
   border: 0;
     padding: 8px;
-    width: 18%;
+    width: 20%;
     border-radius: 3px;
     background: #e40046;
     color: #fff;
@@ -16626,8 +16629,8 @@ button.createbtn i {
 /* =====================notification */
 
 .notification {
-  background-color: #0d6efd;
-  color: white;
+  /* background-color: #0d6efd; */
+  color: #796b6b;
   text-decoration: none;
   padding: 4px 24px;
   margin-right: 20px;
@@ -16639,15 +16642,16 @@ button.createbtn i {
 }
 
 .notification:hover {
-  background: #0b5ed7;
-  color: #fff;
+  /* background: #0b5ed7; */
+  color: #796b6b;
+  
 }
 
 .notification .badge {
   position: absolute;
   top: -10px;
-  right: -10px;
-  padding: 8px 8px;
+  right: 0px;
+  padding: 6px 6px;
   border-radius: 50%;
   background: red;
   color: white;
