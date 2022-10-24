@@ -26,7 +26,8 @@ def login_view(request):
         phone = request.POST['phone']
         password = request.POST['password']
         user = UserRegistration.objects.filter(phone=phone).last()
-        order=Order.objects.filter(name=user)
+        order=Order.objects.get(name=user)
+        print(order.status)
         
         if user is None:
             print("User Not Found")
@@ -38,7 +39,14 @@ def login_view(request):
             messages.warning(request, "Wrong Password")
             return redirect('web:login_view')
         
+        if user is not None and order.status == PaymentStatus.SUCCESS:
+            messages.success(request, 'You have successfully logged in!', 'success')
             return redirect("web:index")
+
+        if order.status == PaymentStatus.FAILURE or order.status == PaymentStatus.PENDING:
+            messages.info(request, 'Please complete your payment')
+            return redirect('web:login_view')
+
         # is_user = UserRegistration.objects.filter(is_user=True)
         # print(is_user)
         
