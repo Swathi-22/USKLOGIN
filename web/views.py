@@ -13,35 +13,46 @@ import os
 import json
 from django.utils.decorators import method_decorator
 from django.http import JsonResponse
-from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
-
+from django.contrib.auth import authenticate,login
 
 
 def login_view(request):
 
     # login_form = LoginForm(request.POST or None)
     if request.method == 'POST':
-        phone = request.POST.get('phone')
-        password = request.POST.get('password')
-        user = UserRegistration.objects.filter(phone=phone,password=password)
-        obj = UserRegistration.objects.get(phone=phone,password=password)
-        order = Order.objects.get(name=obj)
+        phone = request.POST['phone']
+        password = request.POST['password']
+        user = UserRegistration.objects.filter(phone=phone).last()
+        order=Order.objects.filter(name=user)
+        
+        if user is None:
+            print("User Not Found")
+            messages.warning(request, "User Not Found")
+            return redirect('web:login_view')
+        # obj = UserRegistration.objects.get(phone=phone,password=password)
+        profile = UserRegistration.objects.filter(phone=phone , password = password).first()
+        if profile is None:
+            messages.warning(request, "Wrong Password")
+            return redirect('web:login_view')
+        
+            return redirect("web:index")
         # is_user = UserRegistration.objects.filter(is_user=True)
         # print(is_user)
-        if user is not None and order.status == PaymentStatus.SUCCESS:
-            # if user is not None and is_user:
-            request.session['phone'] = phone
-            request.session['password'] = password
-            messages.success(request, 'You have successfully logged in!', 'success')
-            return redirect('web:index')
-        elif order.status == PaymentStatus.FAILURE or order.status == PaymentStatus.PENDING:
-            messages.info(request, 'Please complete your payment')
-        else:
-            messages.info(request, 'Invalid username or password')
-            return redirect('web:login_view')
+        
+        # if user is not None and order.status == PaymentStatus.SUCCESS:
+        #     # if user is not None and is_user:
+        #     request.session['phone'] = phone
+        #     request.session['password'] = password
+        #     messages.success(request, 'You have successfully logged in!', 'success')
+        #     return redirect('web:index')
+        # elif order.status == PaymentStatus.FAILURE or order.status == PaymentStatus.PENDING:
+        #     messages.info(request, 'Please complete your payment')
+        # else:
+        #     messages.info(request, 'Invalid username or password')
+        #     return redirect('web:login_view')
     return render(request,'web/login.html')
 
 
@@ -134,13 +145,8 @@ def profile_update(request):
     user=request.session['phone']
     logined_user=UserRegistration.objects.get(phone=user)
     if request.method == 'POST':
-        old_image = UserRegistration.objects.get(phone=user)
         user_form = UserUpdateForm(request.POST,request.FILES,instance=logined_user)
-        print(user_form.errors)
         if user_form.is_valid():
-            image_path = old_image.profile_image.path
-            if os.path.exists(image_path):
-                os.remove(image_path)
             user_form.save()
             return redirect('web:profile')
     else:

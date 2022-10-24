@@ -5,22 +5,8 @@
 
 <div class="main-panel " id="demo">
     <div class="content-wrapper" id="demo2">
-        <div class="search-bar-bg">
-            <form class="search-bar" id="search-form" method="get" action="{% url 'web:generateBill' %}">
-                {% csrf_token %}
-                <input type="text" placeholder="Search Services" id="search-input">
-                <button type="submit"> <i class="fas fa-search"></i></button>
-
-            </form>
-        </div>
         <div class="row pt-4 " >
-            {% for service_title in services %}
-            <div class="col-lg-4 col-md-4 col-sm-6 col-6"  id="imageViewDiv">
-                <div class="white-button">
-                    <a href="#" target="_self" class="fl-button"><span class="fl-button-text">{{service_title.title}}</span></a>
-                </div>
-            </div> 
-            {% endfor %}
+         
         </div>
     </div>
 </div>

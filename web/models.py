@@ -29,9 +29,7 @@ class UserRegistration(BaseModel):
     shop_address = models.TextField()
     email =  models.EmailField()
     phone = models.CharField(max_length=200)
-    profile_image = VersatileImageField(
-        upload_to="Profile", null=True, default="deafult-01.jpg"
-    )
+    profile_image = VersatileImageField(upload_to="Profile", null=True, blank=True)
     category = models.CharField(max_length=200,choices=CATEGORY_CHOICES)
     is_user = models.BooleanField(default=False)
 

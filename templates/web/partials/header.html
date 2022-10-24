@@ -23,7 +23,12 @@
         <li class="nav-item nav-profile dropdown">
           <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <div class="nav-profile-img">
-              <img src="{{logined_user.profile_image.url}}" alt="image">
+              
+              {% if logined_user.profile_image %}
+              <img src="{{logined_user.profile_image.url}}" class="profile-picture"/>
+              {% else %}
+              <img src="{% static 'web/images/deafult-01.jpg' %}"  class="profile-picture"/>
+              {% endif %}
               <span class="availability-status online"></span>
             </div>
             <div class="nav-profile-text">

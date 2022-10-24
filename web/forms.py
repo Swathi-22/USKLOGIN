@@ -76,10 +76,11 @@ class UserUpdateForm(forms.ModelForm):
         fields = '__all__'
         widgets= {
             'name': TextInput(attrs={'class':'form-control','name':'name',}),
+            'password': TextInput(attrs={'class':'form-control','name':'password','required':'required','autocomplete':'off',}),
             'shop_name': TextInput(attrs={'class':'form-control','name':'shop_name',}),
             'shop_address': Textarea(attrs={'class':'form-control','name':'shop_address',}),
             'email': EmailInput(attrs={'class':'form-control','name':'email',}),
-            'phone': TextInput(attrs={'class':'form-control','name':'phone',}),
+            'phone': TextInput(attrs={'class':'form-control','name':'phone','required':'required','autocomplete':'off',}),
             'category':Select(attrs={'class':'form-control','name':'category',}),
             'profile_image' :FileInput(attrs={'class':'form-control','name':'image',})
         }

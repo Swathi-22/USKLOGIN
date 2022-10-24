@@ -13,9 +13,12 @@
                     Certificate</button>
             </div>
             <div class="profile-header">
-                
-                    <img src="{{logined_user.profile_image.url}}"  class="profile-picture"/>
-             
+            
+                    {% if logined_user.profile_image %}
+                    <img src="{{logined_user.profile_image.url}}" class="profile-picture"/>
+                    {% else %}
+                    <img src="{% static 'web/images/deafult-01.jpg' %}"  class="profile-picture"/>
+                    {% endif %}
 
                 <div class="profile-nav-info">
                     <h3 class="user-name">{{logined_user.name}}</h3> 

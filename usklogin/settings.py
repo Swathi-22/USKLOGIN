@@ -71,7 +71,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'web.context_proccessor.notifications'
+                'web.context_proccessor.notifications',
+                'web.context_proccessor.profile_image'
+
             ],
         },
     },
