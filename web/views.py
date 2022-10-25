@@ -25,14 +25,12 @@ def login_view(request):
     if request.method == 'POST':
         phone = request.POST['phone']
         password = request.POST['password']
-        user = UserRegistration.objects.filter(phone=phone).last()
-        order=Order.objects.get(name=user)
-        print(order.status)
-        
+        user = UserRegistration.objects.filter(phone=phone).first()
         if user is None:
             print("User Not Found")
             messages.warning(request, "User Not Found")
             return redirect('web:login_view')
+        order=Order.objects.get(name=user)
         # obj = UserRegistration.objects.get(phone=phone,password=password)
         profile = UserRegistration.objects.filter(phone=phone , password = password).first()
         if profile is None:
@@ -40,6 +38,7 @@ def login_view(request):
             return redirect('web:login_view')
         
         if user is not None and order.status == PaymentStatus.SUCCESS:
+            request.session['phone']=user.phone
             messages.success(request, 'You have successfully logged in!', 'success')
             return redirect("web:index")
 
@@ -81,7 +80,7 @@ def order_payment(request):
         amount = 20000
         if user_form.is_valid():
             user_form.save()
-        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
+        client = razorpay.Client(auth=("rzp_test_kVa6uUqaP96eJr", "SMxZvHU0XyiAIwMoLIqFL7Na"))
         razorpay_order = client.order.create({"amount":amount , "currency": "INR", "payment_capture": "1"})
         obj = UserRegistration.objects.get(email=email)
         order = Order.objects.create(name=obj, amount=amount, provider_order_id=razorpay_order["id"])
@@ -91,9 +90,9 @@ def order_payment(request):
             request,
             "web/payment.html",
             {
-                # "callback_url": "https://" + "razorpaytask.herokuapp.com" + "/callback/",
-                "callback_url": "http://" + "127.0.0.1:8000" + "/callback/",
-                "razorpay_key": 'rzp_test_hC4pFTo1gvL3SV',
+                # "callback_url": "https://" + "usklogin.geany.website" + "/callback/",
+                "callback_url": "http://" + "127.0.0.1:7000" + "/callback/",
+                "razorpay_key": 'rzp_test_kVa6uUqaP96eJr',
                 "order": order,
             },
         )
@@ -103,7 +102,7 @@ def order_payment(request):
 @csrf_exempt
 def callback(request):
     def verify_signature(response_data):
-        client = razorpay.Client(auth=("rzp_test_hC4pFTo1gvL3SV", "lYvTTabO6PRGJMTwV6JPgEa5"))
+        client = razorpay.Client(auth=("rzp_test_kVa6uUqaP96eJr", "SMxZvHU0XyiAIwMoLIqFL7Na"))
         return client.utility.verify_payment_signature(response_data)
 
     if "razorpay_signature" in request.POST:
@@ -173,12 +172,13 @@ def settings(request):
 
 
 def index(request):
-    service_head = ServiceHeads.objects.all()[:12]
+    service_head = ServiceHeads.objects.all()
     latest_news = LatestNews.objects.all().last()
     new_service_poster = NewServicePoster.objects.all()
     important_poster = ImportantPoster.objects.all()
-    user=request.session['phone']
-    logined_user=UserRegistration.objects.get(phone=user)
+    phone = request.session['phone']
+    # user = UserRegistration.objects.filter(phone=phone).last()
+    logined_user=UserRegistration.objects.get(phone=phone)
     context = {
         "is_index":True,
         'service_head':service_head,

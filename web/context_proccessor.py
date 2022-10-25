@@ -8,8 +8,8 @@ def notifications(request):
 
 
 def profile_image(request):
-    user=request.session['phone']
-    logined_user=UserRegistration.objects.get(phone=user)
+    phone=request.session['phone']
+    logined_user = UserRegistration.objects.filter(phone=phone).first()
     return {
         'logined_user':logined_user,
         'domain':request.META['HTTP_HOST']
