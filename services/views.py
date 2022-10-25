@@ -1,17 +1,15 @@
-from django.shortcuts import render,get_object_or_404
-from services.models import ServiceHeads,Services
+from services.models import ServiceHeads
+from services.models import Services
 
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 
 
 def serviceHead(request):
-    service_head=ServiceHeads.objects.all()
+    service_head = ServiceHeads.objects.all()
     services = Services.objects.all()
-    context = {
-        "is_service":True,
-        'service_head':service_head,
-        'services':services,
-    }
-    return render(request,'web/service-head.html',context)
+    context = {"is_service": True, "service_head": service_head, "services": services}
+    return render(request, "web/service-head.html", context)
 
 
 # def service(request,slug):
@@ -22,10 +20,8 @@ def serviceHead(request):
 #     return render(request,'web/services.html',context)
 
 
-def serviceDetails(request,slug):
-    services = get_object_or_404(Services,slug=slug)
+def serviceDetails(request, slug):
+    services = get_object_or_404(Services, slug=slug)
     print(services.video_tutorial)
-    context = {
-        'services':services,
-    }
-    return render(request,'web/service-details.html',context)
+    context = {"services": services}
+    return render(request, "web/service-details.html", context)

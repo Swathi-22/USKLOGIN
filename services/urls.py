@@ -1,14 +1,11 @@
-from django.urls import path
 from . import views
+from django.urls import path
 
-app_name='services'
 
-urlpatterns =[
+app_name = "services"
 
-    path('services-head/',views.serviceHead,name='serviceHead'),
+urlpatterns = [
+    path("services-head/", views.serviceHead, name="serviceHead"),
     # path('services/<slug:slug>/',views.service,name='service'),
-    path('service-details/<slug:slug>/',views.serviceDetails,name='serviceDetails'),
-
+    path("service-details/<slug:slug>/", views.serviceDetails, name="serviceDetails"),
 ]
-
-
