@@ -1,5 +1,5 @@
-from django.contrib import admin
 from .models import BroadcastNotification
+from django.contrib import admin
 
 
 admin.site.register(BroadcastNotification)
