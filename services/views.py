@@ -1,15 +1,17 @@
 from django.shortcuts import render,get_object_or_404
 from services.models import ServiceHeads,Services
-
-
+from web.models import UserRegistration
 
 def serviceHead(request):
     service_head=ServiceHeads.objects.all()
     services = Services.objects.all()
+    phone = request.session['phone']
+    logined_user=UserRegistration.objects.get(phone=phone)
     context = {
         "is_service":True,
         'service_head':service_head,
         'services':services,
+        'logined_user':logined_user
     }
     return render(request,'web/service-head.html',context)
 

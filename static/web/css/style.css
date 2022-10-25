@@ -6155,9 +6155,9 @@ input[type="button"].btn-block {
     color: #083f37; }
 
 .alert-info {
-  color: #0d4876;
-  background-color: #d1e8f9;
-  border-color: #bfdef7; }
+  color: #fff !important;
+  background-color: #000 !important;
+  border-color: #000 !important; }
   .alert-info hr {
     border-top-color: #a8d2f4; }
   .alert-info .alert-link {
