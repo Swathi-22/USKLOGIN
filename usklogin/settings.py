@@ -63,7 +63,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 'web.context_proccessor.notifications',
-                'web.context_proccessor.profile_image'  
+                
 
             ],
         },
