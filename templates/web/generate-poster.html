@@ -6,13 +6,16 @@
   <div class="content-wrapper" id="demo2">
     <!-- recently added -->
     <div class="service-heading">
-      <h3>Recently Added</h3>
+      <h5>Recently Added</h5>
     </div>
     <div class="container">
 
       {% for commo_services in common_services_poster|slice:"1::-1" %}
       <div class="container__img-holder">
         <img src="{{commo_services.image.url}}" alt="Image">
+      </div>
+      <div class="poster-title">
+        <span>Poster name</span>
       </div>
       {% endfor %}
       {% for festive_poster in festivel_poster|slice:"1::-1" %}
@@ -39,13 +42,17 @@
 
     <!-- common services -->
     <div>
-      <h3 class="service-heading">Common Services</h3>
+      <h5 class="service-heading">Common Services</h5>
     </div>
     <div class="container">
       {% for commo_services in common_services_poster %}
       <div class="container__img-holder">
         <img src="{{commo_services.image.url}}" alt="Image">
+        <div class="poster-title">
+          <span>Poster name</span>
+        </div>
       </div>
+     
       {% endfor %}
 
 
@@ -63,7 +70,7 @@
 
     <!-- festival posters -->
     <div>
-      <h3 class="service-heading">Festivel Posters</h3>
+      <h5 class="service-heading">Festivel Posters</h5>
     </div>
     <div class="container">
       {% for festive_poster in festivel_poster %}
@@ -84,7 +91,7 @@
 
     <!-- professional posters -->
     <div>
-      <h3 class="service-heading">Professional Posters</h3>
+      <h5 class="service-heading">Professional Posters</h5>
     </div>
     <div class="container">
       {% for prof_posters in professional_poster %}

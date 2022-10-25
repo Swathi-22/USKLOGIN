@@ -13810,7 +13810,7 @@ transition: all ease 0.8s;
 }
 .serviceBox {
   border: 1px solid #e5e4e4;
-  padding: 25px;
+  padding:13px;
   border-radius: 20px;
   background: #f9f9f9;
   position: relative;
@@ -13860,14 +13860,14 @@ transition: all ease 0.8s;
 .access{
   background: linear-gradient(to right, #ffbf96, #fe7096) !important;
   color: #fff;
-  padding: 6px 13px;
+  padding: 3px 15px;
   border-radius: 5px;
   font-size: 13px;
 }
 .view-more {
   background: linear-gradient(to right, #ffbf96, #fe7096) !important;
   color: #fff;
-  padding: 6px 13px;
+  padding: 3px 13px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -14971,6 +14971,7 @@ h2 em {
   background: -webkit-linear-gradient(5deg, #69009f, #0066ff 69%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 14px;
 }
 
 
@@ -15847,7 +15848,7 @@ display:none
 .name-software { 
   color: #fff;
   font-weight: 600;
-  padding: 6px 24px;
+  padding: 6px 4px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -15917,7 +15918,7 @@ display:none
 .name-tip {
   color: #fff;
   font-weight: 600;
-  padding: 6px 29px;
+  padding: 6px 4px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -15952,7 +15953,7 @@ display:none
 .name-idea {
   color: #fff;
   font-weight: 600;
-  padding: 6px 29px;
+  padding: 6px 4px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -15988,7 +15989,7 @@ display:none
   
   color: #fff;
   font-weight: 600;
-  padding: 6px 29px;
+  padding: 6px 4px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -16024,7 +16025,7 @@ display:none
   
   color: #fff;
   font-weight: 600;
-  padding: 6px 29px;
+  padding: 6px 4px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -16061,7 +16062,7 @@ display:none
   
   color: #fff;
   font-weight: 600;
-  padding: 6px 29px;  
+  padding: 6px 4px;  
   border-radius: 5px;
   font-size: 13px;
 }
@@ -16697,7 +16698,7 @@ button.createbtn i {
   width: 15rem;
 }
 .form-image{
-  width: 63%;
+  width: 45%;
 }
 .text-color{
   color: #fff;
@@ -16705,4 +16706,7 @@ button.createbtn i {
 .form-dodument-card-margin{
   margin-right: -63px;
 }
- 
+ .poster-title{
+  background: #fff;
+  text-transform: capitalize;
+ }
