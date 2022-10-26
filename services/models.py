@@ -38,3 +38,14 @@ class Services(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class BrandingImage(models.Model):
+    image = VersatileImageField("Image", upload_to="service/", ppoi_field="ppoi")
+    ppoi = PPOIField("Image PPOI")
+
+    class Meta:
+        verbose_name = "Branding Image"
+
+    def __str__(self):
+        return str(self.image)
