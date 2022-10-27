@@ -13,6 +13,7 @@ urlpatterns = [
     path("profile-update/", views.profile_update, name="profile_update"),
     path("settings/", views.settings, name="settings"),
     path("dashboard/", views.index, name="index"),
+    path("notes/", views.notes, name="notes"),
     path("notification/", views.notification, name="notification"),
     path("generate-poster/", views.generatePoster, name="generatePoster"),
     path("generate-bill/", views.generateBill, name="generateBill"),

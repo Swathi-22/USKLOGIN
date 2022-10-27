@@ -1,11 +1,8 @@
 import json
 import os
-
 from services.models import *
 from web.models import *
 from services.models import BrandingImage
-
-
 import razorpay
 from .forms import *
 from asgiref.sync import async_to_sync
@@ -176,8 +173,18 @@ def index(request):
         "important_poster": important_poster,
         "room_name": "broadcast",
         "logined_user": logined_user,
+        
     }
     return render(request, "web/index.html", context)
+
+
+def notes(request):
+    phone = request.session["phone"]
+    logined_user = UserRegistration.objects.get(phone=phone)
+    context = {
+        "logined_user":logined_user,
+    }
+    return render(request,'web/notes.html',context)
 
 
 def notification(request):

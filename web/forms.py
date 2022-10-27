@@ -1,6 +1,9 @@
 import re
 
-from .models import *
+from attr import fields
+import attr
+
+from .models import UserRegistration,SupportRequest,SupportTicket
 from django import forms
 from django.core.exceptions import ValidationError
 from django.forms.widgets import EmailInput
@@ -80,3 +83,6 @@ class UserUpdateForm(forms.ModelForm):
             "category": Select(attrs={"class": "form-control", "name": "category"}),
             "profile_image": FileInput(attrs={"class": "form-control", "name": "image"}),
         }
+
+
+

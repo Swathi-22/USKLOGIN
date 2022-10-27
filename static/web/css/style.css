@@ -13872,6 +13872,39 @@ transition: all ease 0.8s;
   font-size: 13px;
 }
 @media only screen and (max-width:576px){
+
+  #task {
+    position: relative;
+    padding: 19px 0px !important;
+}
+#task input {
+  padding: 10px;
+  position: relative;
+  width: 100% !important;
+  color: rgb(0, 0, 0);
+  height: 40px;
+  font-size: 1rem;
+  border: 1px solid purple;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+#task textarea {
+  width: 100% !important;
+  height: 150px;
+  resize: none;
+  margin: 12px 0 !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  border: 1px solid purple;
+  border-radius: 3px;
+  padding: 2px;
+}
+.d-sm-none{
+  display: none !important;
+}
+  .software-card-margin {
+    margin: 0px 0px !important;
+  }
   .form-dodument-card-margin{
     margin-right: 0px !important;
   }
@@ -14516,6 +14549,20 @@ button.chatbtn, button.createbtn {
 }
 
 @media only screen and (min-width:577px) and (max-width:768px){
+
+#task button {
+    background-color: #741377;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 11px !important;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+  .software-card-margin {
+    margin: 0px 0px !important;
+  }
   .form-dodument-card-margin{
     margin-right: 0px !important;
   }
@@ -14813,6 +14860,9 @@ button.chatbtn, button.createbtn {
 }
 }
 @media only screen and (min-width:1024px){
+  .software-card-margin {
+    margin: 0px 0px !important;
+  }
   .form-dodument-card-margin {
     margin-right: -63px !important;
 }
@@ -15852,7 +15902,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-software:hover{
+/* .name-software:hover{
   background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
   box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
   color: #fff;
@@ -15860,7 +15910,7 @@ display:none
   padding: 6px 24px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .access-tool{
   background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
@@ -15887,7 +15937,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-tool:hover{
+/* .name-tool:hover{
   background-image: linear-gradient(to right, #008b92, #2183fc, #00A8C5, #62e021);
   box-shadow: 0 4px 15px 0 rgb(83 176 57 / 75%);
   color: #fff;
@@ -15895,7 +15945,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .access-tip{
   background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
@@ -15922,7 +15972,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-tip:hover{
+/* .name-tip:hover{
   background-image: linear-gradient(to right, #922200, #fc7221, #c55b00, #e02121a8);
   box-shadow: 0 4px 15px 0 rgb(176 57 57 / 75%);
   color: #fff;
@@ -15930,7 +15980,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .access-idea{
   background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
@@ -15957,7 +16007,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-idea:hover{
+/* .name-idea:hover{
   background-image: linear-gradient(to right, #109200, #23bb28, #52740f, #7f8713a8);
   box-shadow: 0 4px 15px 0 rgb(114 176 57 / 75%);
   color: #fff;
@@ -15965,7 +16015,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .access-portal{
   background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
@@ -15993,7 +16043,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-portal:hover{
+/* .name-portal:hover{
   background-image: linear-gradient(to right, #92006c, #9421fc, #7000c5, #e021a5a8);
   box-shadow: 0 4px 15px 0 rgb(92 57 176 / 75%);
   color: #fff;
@@ -16001,7 +16051,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .access-backservice{
   background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
@@ -16029,7 +16079,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-backservice:hover{
+/* .name-backservice:hover{
   background-image: linear-gradient(to right, #a59215, #db9c0f, #b1a131, #686107);
   box-shadow: 0 4px 15px 0 rgb(176 150 57 / 75%);
   color: #fff;
@@ -16037,7 +16087,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 
 .access-bonus{
@@ -16066,7 +16116,7 @@ display:none
   border-radius: 5px;
   font-size: 13px;
 }
-.name-bonus:hover{
+/* .name-bonus:hover{
   background-image: linear-gradient(to right, #4c15a5, #a50ea7, #6611b3, #d53fd0a8);
   box-shadow: 0 4px 15px 0 rgb(136 57 176 / 75%);
   color: #fff;
@@ -16074,7 +16124,7 @@ display:none
   padding: 6px 29px;
   border-radius: 5px;
   font-size: 13px;
-}
+} */
 
 .buttons{
   width: 75%;
@@ -16654,9 +16704,7 @@ button.createbtn i {
   /* background-color: #0d6efd; */
   color: #796b6b;
   text-decoration: none;
-  padding: 4px 24px;
-  margin-right: 20px;
-  margin-left: 20px;
+  padding: 4px 20px;
   position: relative;
   display: inline-block;
   border-radius: 2px;
@@ -16710,3 +16758,131 @@ button.createbtn i {
   background: #fff;
   text-transform: capitalize;
  }
+ .software-card-margin {
+  margin: 0px -28px;
+}
+
+/* CONTENT INSIDE CONTAINER */
+#task{
+  position: relative;
+  padding:  30px 20px;
+}
+/* FOR TITLE INPUT */
+#task input{
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  height: 40px;
+  font-size: 1rem;
+  border: 1px solid  purple;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+#task input:focus{
+outline: none;
+}
+/* FOR ADDING NOTES */
+#task button{
+  background-color: #741377;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+#task button:hover{
+  background-color: blueviolet;
+}
+/* FOR WRITING NOTES */
+#task textarea{
+  width: 100%;
+  height: 150px;
+  resize: none;
+ margin:20px 0 ;
+ font-family: 'Poppins', sans-serif;
+ font-weight: 300;
+ border: 1px solid purple;
+ border-radius: 3px;
+ padding: 2px;
+
+}
+#task textarea:focus{
+  outline: none; 
+
+}
+
+#title::placeholder{
+  color: rgb(74 64 64);
+  font-style: italic;
+}
+#notes::placeholder{
+  color: rgb(74 64 64);
+  font-style: italic;
+}
+/* FOR DISPLAYING THE NOTES */
+/* CONTAINER WHERE NOTES ARE WRITTEN */
+.Display{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  
+  }
+  /* CONTENT INSIDE CONTAINER */
+  #Displaytask{
+      position: relative;
+      padding:  12px;
+      background-color: #fff;
+      width:auto ;
+      border-radius: 5px;
+      border: 1px solid black;
+      margin-left: 5px;
+      margin-right: 13px;
+      margin-bottom: 5px;
+  }
+  /* FOR TITLE INPUT */
+  #Displaytask h3{
+      padding: 10px;
+      width: 400px;
+      width: 100%;
+      color: rgb(102, 5, 97);
+      height: 30px;
+      font-size:18px;
+      font-family: 'Poppins', sans-serif;
+  }
+  #Displaytask input:focus{
+   outline: none;
+  }
+  /* FOR ADDING NOTES */
+  #Displaytask button{
+      background-color: #741377;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      float: right;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+  }
+  #Displaytask button:hover{
+      background-color: blueviolet;
+  }
+  /* FOR WRITING NOTES */
+  #Displaytask textarea{
+      width: 100%;
+      height: auto;
+      resize: none;
+     margin:10px 0 ;
+     font-family: 'Poppins', sans-serif;
+     font-weight: 300;
+     border: 1px solid purple;
+     border-radius: 3px;
+     padding: 2px;
+  
+  }
+  #Displaytask textarea:focus{
+      outline: none; 
+  
+  } 
