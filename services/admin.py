@@ -1,5 +1,7 @@
+from .models import BrandingImage
+from .models import ServiceHeads
+from .models import Services
 from django.contrib import admin
-from .models import ServiceHeads, Services, BrandingImage
 
 
 @admin.register(ServiceHeads)

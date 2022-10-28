@@ -23,5 +23,5 @@ class InvoiceItemForm(ModelForm):
         fields = ("invoice", "services_name", "services_charge", "username", "password", "descripton", "qty")
 
 
-InvoiceItemFormset = inlineformset_factory(Invoice, InvoiceItem, form=InvoiceItemForm, extra=0, can_delete=False)
+InvoiceItemFormset = inlineformset_factory(Invoice, InvoiceItem, extra=1, can_delete=False)
 InvoiceFormset = inlineformset_factory(Customer, Invoice, form=InvoiceForm, extra=1, can_delete=False)

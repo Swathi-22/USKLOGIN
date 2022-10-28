@@ -2,7 +2,6 @@ from .forms import InvoiceFormset
 from .forms import InvoiceItemFormset
 from .models import Customer
 from .models import Invoice
-from .models import InvoiceItem
 from django.db import transaction
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -29,7 +28,7 @@ class CustomerInvoieCreate(CreateView):
     template_name = "invoice/customer_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super(CustomerInvoieCreate, self).get_context_data(**kwargs)
+        data = super().get_context_data(**kwargs)
         if self.request.POST:
             data["invoices"] = InvoiceFormset(self.request.POST)
         else:
@@ -45,7 +44,7 @@ class CustomerInvoieCreate(CreateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super(CustomerInvoieCreate, self).form_valid(form)
+        return super().form_valid(form)
 
 
 class CustomerUpdate(UpdateView):
@@ -62,7 +61,7 @@ class CustomerInvoieUpdate(UpdateView):
     template_name = "invoice/customer_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super(CustomerInvoieUpdate, self).get_context_data(**kwargs)
+        data = super().get_context_data(**kwargs)
         if self.request.POST:
             data["invoices"] = InvoiceFormset(self.request.POST, instance=self.object)
         else:
@@ -78,7 +77,7 @@ class CustomerInvoieUpdate(UpdateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super(CustomerInvoieUpdate, self).form_valid(form)
+        return super().form_valid(form)
 
 
 class CustomerDelete(DeleteView):
@@ -106,12 +105,12 @@ class InvoiceItemCreate(CreateView):
     template_name = "invoice/invoice_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super(InvoiceItemCreate, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         if self.request.POST:
-            data["invoices_items"] = InvoiceItemFormset(self.request.POST)
+            context["invoices_items"] = InvoiceItemFormset(self.request.POST)
         else:
-            data["invoices_items"] = InvoiceItemFormset()
-        return data
+            context["invoices_items"] = InvoiceItemFormset()
+        return context
 
     def form_valid(self, form):
         context = self.get_context_data()
@@ -122,7 +121,7 @@ class InvoiceItemCreate(CreateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super(CustomerInvoieItemCreate, self).form_valid(form)
+        return super().form_valid(form)
 
 
 class InvoiceUpdate(UpdateView):
@@ -139,7 +138,7 @@ class InvoieItemUpdate(UpdateView):
     template_name = "invoice/invoice_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super(InvoieItemUpdate, self).get_context_data(**kwargs)
+        data = super().get_context_data(**kwargs)
         if self.request.POST:
             data["invoices_items"] = InvoiceItemFormset(self.request.POST)
         else:
@@ -155,7 +154,7 @@ class InvoieItemUpdate(UpdateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super(CustomerInvoieCreate, self).form_valid(form)
+        return super().form_valid(form)
 
 
 class InvoiceDelete(DeleteView):

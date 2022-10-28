@@ -1,20 +1,18 @@
-from django.shortcuts import render,get_object_or_404
-from services.models import ServiceHeads,Services
+from services.models import ServiceHeads
+from services.models import Services
 from web.models import UserRegistration
+
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 
 
 def serviceHead(request):
     service_head = ServiceHeads.objects.all()
     services = Services.objects.all()
-    phone = request.session['phone']
-    logined_user=UserRegistration.objects.get(phone=phone)
-    context = {
-        "is_service":True,
-        'service_head':service_head,
-        'services':services,
-        'logined_user':logined_user
-    }
-    return render(request,'web/service-head.html',context)
+    phone = request.session["phone"]
+    logined_user = UserRegistration.objects.get(phone=phone)
+    context = {"is_service": True, "service_head": service_head, "services": services, "logined_user": logined_user}
+    return render(request, "web/service-head.html", context)
 
 
 # def service(request,slug):
