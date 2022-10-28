@@ -6,7 +6,7 @@
     <div>
         <ul>
             {% for profile in object_list %}
-                <li>{{ profile.name }}  | <a
+                <li>{{ profile }}  | <a
                         href="{% url 'invoices:invoice-update' profile.pk %}">edit</a>
                     <a href="{% url 'invoices:invoice-delete' profile.pk %}">delete</a>
                 </li>
@@ -16,7 +16,9 @@
 
         </ul>
         <p>
-            <a href="{% url 'invoices:invoice-add' %}">add a profile</a>
+            <a href="{% url 'invoices:invoice-add' %}">add a invoice</a>
         </p>
+        <a href="{% url 'invoices:customer-list' %}">add a customer</a>
+        <p></p>
     </div>
 {% endblock %}
