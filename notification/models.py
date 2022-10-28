@@ -23,7 +23,7 @@ def notification_handler(sender, instance, created, **kwargs):
         schedule, created = CrontabSchedule.objects.get_or_create(
             hour=instance.broadcast_on.hour, minute=instance.broadcast_on.minute, day_of_month=instance.broadcast_on.day, month_of_year=instance.broadcast_on.month
         )
-        task = PeriodicTask.objects.create(
+        PeriodicTask.objects.create(
             crontab=schedule, name="broadcast-notification-" + str(instance.id), task="notification.tasks.broadcast_notification", args=json.dumps((instance.id,))
         )
 

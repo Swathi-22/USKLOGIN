@@ -2,11 +2,33 @@ import json
 import os
 
 from services.models import BrandingImage
-from services.models import *
-from web.models import *
+from services.models import ServiceHeads
+from services.models import Services
+from web.constants import PaymentStatus
 
 import razorpay
-from .forms import *
+from .forms import SupportRequestForm
+from .forms import SupportTicketForm
+from .forms import UserRegistrationForm
+from .forms import UserUpdateForm
+from .models import FAQ
+from .models import AgencyPortal
+from .models import AgentBonus
+from .models import BackOfficeServices
+from .models import CommonServicesPoster
+from .models import Documents
+from .models import FestivelPoster
+from .models import GenerateForms
+from .models import ImportantPoster
+from .models import LatestNews
+from .models import MarketingTips
+from .models import NewServicePoster
+from .models import Order
+from .models import OtherIdeas
+from .models import ProfessionalPoster
+from .models import Softwares
+from .models import Tools
+from .models import UserRegistration
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from django.contrib import messages
@@ -17,13 +39,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 
-# from django.views.decorators.csrf import csrf_exempt
-# from pyexpat.errors import messages
-
-
 def login_view(request):
-
-    # login_form = LoginForm(request.POST or None)
     if request.method == "POST":
         phone = request.POST["phone"]
         password = request.POST["password"]
@@ -392,8 +408,5 @@ def paymentfail(request):
 
 
 def logout(request):
-    try:
-        del request.session["phone"]
-    except:
-        return redirect("web:login_view")
-    return redirect("web:login_view")
+    del request.session["phone"]
+    return redirect("web:login")

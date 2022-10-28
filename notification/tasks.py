@@ -12,7 +12,7 @@ def broadcast_notification(self, data):
     print(data)
     try:
         notification = BroadcastNotification.objects.filter(id=int(data))
-        if len(notification) > 0:
+        if notification:
             notification = notification.first()
             channel_layer = get_channel_layer()
             loop = asyncio.new_event_loop()
@@ -27,15 +27,7 @@ def broadcast_notification(self, data):
 
             raise Ignore()
 
-    except:
-        self.update_state(
-            state="FAILURE",
-            meta={
-                "exe": "Failed"
-                # 'exc_type': type(ex).__name__,
-                # 'exc_message': traceback.format_exc().split('\n')
-                # 'custom': '...'
-            },
-        )
-
+    except Exception as e:
+        print(e)
+        self.update_state(state="FAILURE", meta={"exe": "Not Found"})
         raise Ignore()
