@@ -1,8 +1,10 @@
 import json
 import os
+
+from services.models import BrandingImage
 from services.models import *
 from web.models import *
-from services.models import BrandingImage
+
 import razorpay
 from .forms import *
 from asgiref.sync import async_to_sync
@@ -14,10 +16,9 @@ from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
 
+
 # from django.views.decorators.csrf import csrf_exempt
 # from pyexpat.errors import messages
-
-from django.contrib.auth.forms import PasswordChangeForm
 
 
 def login_view(request):
@@ -173,7 +174,6 @@ def index(request):
         "important_poster": important_poster,
         "room_name": "broadcast",
         "logined_user": logined_user,
-        
     }
     return render(request, "web/index.html", context)
 
@@ -181,10 +181,8 @@ def index(request):
 def notes(request):
     phone = request.session["phone"]
     logined_user = UserRegistration.objects.get(phone=phone)
-    context = {
-        "logined_user":logined_user,
-    }
-    return render(request,'web/notes.html',context)
+    context = {"logined_user": logined_user}
+    return render(request, "web/notes.html", context)
 
 
 def notification(request):
