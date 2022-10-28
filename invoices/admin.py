@@ -1,5 +1,7 @@
+from .models import Customer
+from .models import Invoice
+from .models import InvoiceItem
 from django.contrib import admin
-from .models import Customer, Invoice, InvoiceItem
 
 
 # Register your models here.

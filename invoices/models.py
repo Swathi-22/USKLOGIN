@@ -1,5 +1,6 @@
-from django.db import models
 from services.models import Services
+
+from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
@@ -34,6 +35,9 @@ class Invoice(models.Model):
     class Meta:
         verbose_name = "Invoice"
         verbose_name_plural = "Invoices"
+
+    def get_absolute_url(self):
+        return reverse("customer-update", kwargs={"pk": self.pk})
 
     def __str__(self):
         return str(self.invoice_name)
