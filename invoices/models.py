@@ -37,7 +37,7 @@ class Invoice(models.Model):
         verbose_name_plural = "Invoices"
 
     def get_absolute_url(self):
-        return reverse("customer-update", kwargs={"pk": self.pk})
+        return reverse("invoice-update", kwargs={"pk": self.pk})
 
     def __str__(self):
         return str(self.invoice_name)
