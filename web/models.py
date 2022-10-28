@@ -55,6 +55,9 @@ class Order(models.Model):
     payment_id = models.CharField(("Payment ID"), max_length=36, null=False, blank=False)
     signature_id = models.CharField(("Signature ID"), max_length=128, null=False, blank=False)
 
+    class Meta:
+        verbose_name_plural = "Orders"
+
     def __str__(self):
         return f"{self.id}-{self.name}-{self.status}"
 
@@ -277,5 +280,3 @@ class FAQ(models.Model):
 
     def __str__(self):
         return str(self.question)
-
-

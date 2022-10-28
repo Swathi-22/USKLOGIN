@@ -16,8 +16,6 @@ ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
-    "versatileimagefield",
-    "tinymce",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -25,9 +23,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
+    # apps
     "web",
     "services",
     "notification",
+    "invoices",
+    # 3rd party
+    "versatileimagefield",
+    "tinymce",
     "channels",
     "django_celery_beat",
     "django_celery_results",

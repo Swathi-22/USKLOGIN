@@ -5,7 +5,7 @@ from .models import ServiceHeads, Services, BrandingImage
 @admin.register(ServiceHeads)
 class ServiceHeadsAdmin(admin.ModelAdmin):
     list_display = ("title",)
-    prepopulated_fields = {"slug": ("title",)}
+    # prepopulated_fields = {"slug": ("title",)}
 
 
 @admin.register(Services)
