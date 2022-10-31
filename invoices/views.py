@@ -28,7 +28,7 @@ class CustomerInvoieCreate(CreateView):
     template_name = "invoice/customer_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
+        data = super(CustomerInvoieCreate, self).get_context_data(**kwargs)
         if self.request.POST:
             data["invoices"] = InvoiceFormset(self.request.POST)
         else:
@@ -44,7 +44,7 @@ class CustomerInvoieCreate(CreateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super().form_valid(form)
+        return super(CustomerInvoieCreate, self).form_valid(form)
 
 
 class CustomerUpdate(UpdateView):
@@ -61,7 +61,7 @@ class CustomerInvoieUpdate(UpdateView):
     template_name = "invoice/customer_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
+        data = super(CustomerInvoieUpdate, self).get_context_data(**kwargs)
         if self.request.POST:
             data["invoices"] = InvoiceFormset(self.request.POST, instance=self.object)
         else:
@@ -77,7 +77,7 @@ class CustomerInvoieUpdate(UpdateView):
             if invoices.is_valid():
                 invoices.instance = self.object
                 invoices.save()
-        return super().form_valid(form)
+        return super(CustomerInvoieUpdate, self).form_valid(form)
 
 
 class CustomerDelete(DeleteView):
@@ -85,8 +85,9 @@ class CustomerDelete(DeleteView):
     success_url = reverse_lazy("invoices:customer-list")
     template_name = "invoice/customer_confirm_delete.html"
 
+    ### invoice items create ###
 
-# invoice items create
+
 class InvoiceList(ListView):
     model = Invoice
     template_name = "invoice/invoice_list.html"
@@ -94,18 +95,18 @@ class InvoiceList(ListView):
 
 class InvoiceCreate(CreateView):
     model = Invoice
-    fields = ["customer", "invoice_name", "invoice_no"]
+    fields = ["customer", "invoice_name", "from_address", "invoice_no", "phone_no"]
     template_name = "invoice/invoice_form.html"
 
 
 class InvoiceItemCreate(CreateView):
     model = Invoice
-    fields = ["customer", "invoice_name", "invoice_no"]
+    fields = ["customer", "invoice_name", "from_address", "invoice_no", "phone_no"]
     success_url = reverse_lazy("invoices:invoice-list")
     template_name = "invoice/invoice_form.html"
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(InvoiceItemCreate, self).get_context_data(**kwargs)
         if self.request.POST:
             context["invoices_items"] = InvoiceItemFormset(self.request.POST)
         else:
@@ -114,50 +115,50 @@ class InvoiceItemCreate(CreateView):
 
     def form_valid(self, form):
         context = self.get_context_data()
-        invoices = context["invoices_items"]
+        invoices_items = context["invoices_items"]
         with transaction.atomic():
             self.object = form.save()
 
-            if invoices.is_valid():
-                invoices.instance = self.object
-                invoices.save()
-        return super().form_valid(form)
+            if invoices_items.is_valid():
+                invoices_items.instance = self.object
+                invoices_items.save()
+        return super(InvoiceItemCreate, self).form_valid(form)
 
 
 class InvoiceUpdate(UpdateView):
     model = Invoice
-    fields = ["customer", "invoice_name", "invoice_no"]
+    fields = ["customer", "invoice_name", "from_address", "invoice_no", "phone_no"]
     success_url = reverse_lazy("invoices:invoice-list")
     template_name = "invoice/invoice_form.html"
 
 
 class InvoieItemUpdate(UpdateView):
     model = Invoice
-    fields = ["customer", "invoice_name", "invoice_no"]
+    fields = ["customer", "invoice_name", "from_address", "invoice_no", "phone_no"]
     success_url = reverse_lazy("invoices:invoice-list")
     template_name = "invoice/invoice_form.html"
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
+        data = super(InvoieItemUpdate, self).get_context_data(**kwargs)
         if self.request.POST:
-            data["invoices_items"] = InvoiceItemFormset(self.request.POST)
+            data["invoices_items"] = InvoiceItemFormset(self.request.POST, instance=self.object)
         else:
-            data["invoices_items"] = InvoiceItemFormset()
+            data["invoices_items"] = InvoiceItemFormset(instance=self.object)
         return data
 
     def form_valid(self, form):
         context = self.get_context_data()
-        invoices = context["invoices_items"]
+        invoices_items = context["invoices_items"]
         with transaction.atomic():
             self.object = form.save()
 
-            if invoices.is_valid():
-                invoices.instance = self.object
-                invoices.save()
-        return super().form_valid(form)
+            if invoices_items.is_valid():
+                invoices_items.instance = self.object
+                invoices_items.save()
+        return super(InvoieItemUpdate, self).form_valid(form)
 
 
 class InvoiceDelete(DeleteView):
-    model = Customer
+    model = Invoice
     success_url = reverse_lazy("invoices:invoice-list")
     template_name = "invoice/invoice_confirm_delete.html"

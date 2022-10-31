@@ -25,7 +25,7 @@ class Customer(models.Model):
 
 
 class Invoice(models.Model):
-    customer = models.ForeignKey(Customer, related_name="invoice", on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     invoice_name = models.CharField(max_length=100)
     invoice_no = models.CharField(max_length=100)
     from_address = models.CharField(max_length=100)

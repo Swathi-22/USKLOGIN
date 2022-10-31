@@ -2,17 +2,21 @@
 {% load static %}
 
 {% block title %}{% endblock %}
+<link rel="stylesheet" href="{% static 'invoice/css/style.css' %}">
 {% block content %}
     <h2>Profile</h2>
     <hr>
     <div class="col-md-4">
         <form action="" method="post">{% csrf_token %}
             {{ form.as_p }}
+            {% comment %}
+            {% endcomment %}
 
             <table class="table">
-                {{ invoices.management_form }}
 
-                {% for form in invoices.forms %}
+                {{ invoices_items.management_form }}
+
+                {% for form in invoices_items.forms %}
                     {% if forloop.first %}
                         <thead>
                         <tr>
@@ -50,4 +54,9 @@
             prefix: 'familymember_set'
         });
     </script>
+    <!-- CUSTOM JS -->
+    <script src="{% static 'invoice/js/jquery.min.js' %}"></script>
+    <script src="{% static 'invoice/js/jspdf.min.js' %}"></script>
+    <script src="{% static 'invoice/js/html2canvas.min.js' %}"></script>
+    <script src="{% static 'invoice/js/main.js' %}"></script>
 {% endblock %}
